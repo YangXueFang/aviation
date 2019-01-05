@@ -12,6 +12,7 @@ public class AviationApplicationTests {
     @Test
     public void contextLoads() {
         System.out.print("测试");
+        System.out.print("测试");
     }
 
 }
