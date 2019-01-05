@@ -11,7 +11,7 @@ public class AviationApplicationTests {
 
     @Test
     public void contextLoads() {
-        System.out.print("第二次测试");
+        System.out.print("第三次测试");
     }
 
 }
