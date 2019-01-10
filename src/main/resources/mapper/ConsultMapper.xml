@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tcmp068.aviation.consult.dao.ConsultMapper" >
+  <resultMap id="BaseResultMap" type="cn.tcmp068.aviation.entity.Consult" >
+    <id column="consultId" property="consultid" jdbcType="INTEGER" />
+    <result column="consultName" property="consultname" jdbcType="VARCHAR" />
+    <result column="consultPhone" property="consultphone" jdbcType="VARCHAR" />
+    <result column="consultTime" property="consulttime" jdbcType="TIMESTAMP" />
+    <result column="consultClause" property="consultclause" jdbcType="INTEGER" />
+    <result column="consultText" property="consulttext" jdbcType="VARCHAR" />
+    <result column="userId" property="userid" jdbcType="INTEGER" />
+    <result column="consultStatus" property="consultstatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    consultId, consultName, consultPhone, consultTime, consultClause, consultText, userId, 
+    consultStatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Consult
+    where consultId = #{consultid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Consult
+    where consultId = #{consultid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Consult" >
+    insert into Consult (consultId, consultName, consultPhone, 
+      consultTime, consultClause, consultText, 
+      userId, consultStatus)
+    values (#{consultid,jdbcType=INTEGER}, #{consultname,jdbcType=VARCHAR}, #{consultphone,jdbcType=VARCHAR}, 
+      #{consulttime,jdbcType=TIMESTAMP}, #{consultclause,jdbcType=INTEGER}, #{consulttext,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=INTEGER}, #{consultstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tcmp068.aviation.entity.Consult" >
+    insert into Consult
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="consultid != null" >
+        consultId,
+      </if>
+      <if test="consultname != null" >
+        consultName,
+      </if>
+      <if test="consultphone != null" >
+        consultPhone,
+      </if>
+      <if test="consulttime != null" >
+        consultTime,
+      </if>
+      <if test="consultclause != null" >
+        consultClause,
+      </if>
+      <if test="consulttext != null" >
+        consultText,
+      </if>
+      <if test="userid != null" >
+        userId,
+      </if>
+      <if test="consultstatus != null" >
+        consultStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="consultid != null" >
+        #{consultid,jdbcType=INTEGER},
+      </if>
+      <if test="consultname != null" >
+        #{consultname,jdbcType=VARCHAR},
+      </if>
+      <if test="consultphone != null" >
+        #{consultphone,jdbcType=VARCHAR},
+      </if>
+      <if test="consulttime != null" >
+        #{consulttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultclause != null" >
+        #{consultclause,jdbcType=INTEGER},
+      </if>
+      <if test="consulttext != null" >
+        #{consulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="consultstatus != null" >
+        #{consultstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tcmp068.aviation.entity.Consult" >
+    update Consult
+    <set >
+      <if test="consultname != null" >
+        consultName = #{consultname,jdbcType=VARCHAR},
+      </if>
+      <if test="consultphone != null" >
+        consultPhone = #{consultphone,jdbcType=VARCHAR},
+      </if>
+      <if test="consulttime != null" >
+        consultTime = #{consulttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consultclause != null" >
+        consultClause = #{consultclause,jdbcType=INTEGER},
+      </if>
+      <if test="consulttext != null" >
+        consultText = #{consulttext,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="consultstatus != null" >
+        consultStatus = #{consultstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where consultId = #{consultid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tcmp068.aviation.entity.Consult" >
+    update Consult
+    set consultName = #{consultname,jdbcType=VARCHAR},
+      consultPhone = #{consultphone,jdbcType=VARCHAR},
+      consultTime = #{consulttime,jdbcType=TIMESTAMP},
+      consultClause = #{consultclause,jdbcType=INTEGER},
+      consultText = #{consulttext,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=INTEGER},
+      consultStatus = #{consultstatus,jdbcType=INTEGER}
+    where consultId = #{consultid,jdbcType=INTEGER}
+  </update>
+</mapper>
