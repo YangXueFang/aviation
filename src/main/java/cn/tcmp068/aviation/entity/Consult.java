@@ -20,7 +20,4 @@ public class Consult {
     private Date consultDate;
     private int consultStatus;
     private User user;
-
-
-    ;
 }
