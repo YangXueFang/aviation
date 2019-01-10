@@ -4,15 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Admin {
-    private int adminid;
-    private String adminphone;
-    private String adminname;
-    private Date adminjoindate;
-    private String adminpassword;
-    private int adminlevel;
+
+    private int adminId;
+    private String adminPhone;
+    private String adminName;
+    private Timestamp adminTime;
+    private String adminPassword;
+    private int adminGrade;
+    private int adminStatus;
 }

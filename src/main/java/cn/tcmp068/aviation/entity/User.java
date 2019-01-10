@@ -4,17 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    private int id;
-    private String name;
-    private String count;
-    private String password;
-    private String phone;
-    private int userlevel;
-    private Date userjoindate;
+
+    private int userId;
+    private String userPassword;
+    private String userPhone;
+    private int userType;
+    private Timestamp userDate;
+    private int userStatus;
+    private List<Consult> consults;
+    private List<FeedBack> feedBacks;
 }
