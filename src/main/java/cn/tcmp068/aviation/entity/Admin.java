@@ -9,10 +9,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Admin {
-    private int adminid;
-    private String adminphone;
-    private String adminname;
-    private Date adminjoindate;
-    private String adminpassword;
-    private int adminlevel;
+    private int adminId;
+    private String adminPhone;
+    private String adminName;
+    private Date adminJoinDate;
+    private String adminPassword;
+    private int adminLevel;
+    private int adminStatus;
 }

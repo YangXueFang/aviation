@@ -10,7 +10,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FeedBack {
-    private int feedbackid;
-    private String feedbackcontent;
-    private Date feedbackDate;
+    private int feedBackId;
+    private String feedBackContent;
+    private Date feedBackDate;
+    private User user;
+    private int feedBackStatus;
 }
