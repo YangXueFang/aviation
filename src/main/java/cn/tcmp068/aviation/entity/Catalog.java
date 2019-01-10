@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -12,10 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Catalog {
     private int catalogId;
-    private Statute statute;//
-    private String catalogText;
-    private int catalogLevel;
-    private int superiorCatalog;
-    private int peerNumber;
+    private int cataLaws;
+    private String cateText;
+    private int cateGrade;
+    private int cateRank;
+    private int cateNumber;
     private List<Clause> clauses;
 }
