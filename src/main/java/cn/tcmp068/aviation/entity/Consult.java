@@ -17,7 +17,6 @@ public class Consult {
     private Timestamp consultTime;
     private int consultClause;
     private String consultText;
-    private Date consultDate;
     private int consultStatus;
     private User user;
 }

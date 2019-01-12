@@ -14,5 +14,18 @@ public class AdminServicesImpl implements AdminServices{
     private AdminMapper adminMapper;
 
 
+    @Override
+    public List<Admin> queryAll() {
+        return this.adminMapper.queryAll();
+    }
 
+    @Override
+    public int addAdmin(Admin admin) {
+        return this.adminMapper.addAdmin(admin);
+    }
+
+    @Override
+    public int deleteAdmin(int adminId) {
+        return this.adminMapper.deleteAdmin(adminId);
+    }
 }

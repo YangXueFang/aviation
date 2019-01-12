@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-
     private int userId;
     private String userPassword;
     private String userPhone;
@@ -20,5 +19,5 @@ public class User {
     private Timestamp userDate;
     private int userStatus;
     private List<Consult> consults;
-    private List<FeedBack> feedBacks;
+    private List<Leave> leaves;
 }

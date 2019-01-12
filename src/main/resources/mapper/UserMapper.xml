@@ -2,6 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--<mapper namespace="cn.tcmp068.aviation.user.dao.UserMapper">-->
-   <!---->
-<!--</mapper>-->
+<mapper namespace="cn.tcmp068.aviation.user.dao.UserMapper">
+   <select id="queryAll" parameterType="cn.tcmp068.aviation.entity.User" resultType="cn.tcmp068.aviation.entity.User">
+       select * from User
+       <where>
+           <if test="user!=null">
+               <if test="user.userPhone!=null">
+                   and userPhone like concat ('%',#{user.userPhone},'%')
+               </if>
+           </if>
+       </where>
+   </select>
+</mapper>

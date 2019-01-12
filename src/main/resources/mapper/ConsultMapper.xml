@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tcmp068.aviation.consult.dao.ConsultMapper">
+    <select id="queryAll" resultType="cn.tcmp068.aviation.entity.Consult">
+        select * from consult
+        <where>
+            <if test="consult!=null">
+                <if test="consult.consultPhone!=null and consult.consultPhone!=''">
+                    and consultPhone like concat ('%',#{consult.consultPhone},'%')
+                </if>
+                <if test="consult.consultText!=null and consult.consultText!=''">
+                    and consultText like concat ('%',#{consult.consultText},'%')
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
+        delete from consult where consultId=#{consultId}
+    </delete>
+</mapper>

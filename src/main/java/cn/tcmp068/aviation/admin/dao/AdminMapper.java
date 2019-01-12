@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface AdminMapper {
 
+    List<Admin> queryAll();
+    int addAdmin(Admin admin);
+    int deleteAdmin(int adminId);
+
 }
