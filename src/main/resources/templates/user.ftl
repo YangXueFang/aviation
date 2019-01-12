@@ -57,7 +57,7 @@
     layui.use('form',function () {
         var form = layui.form;
     })
-    layui.use(['laypage','layer'],function () {
+    layui.use(['laypage','layer'],function () {/.
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
