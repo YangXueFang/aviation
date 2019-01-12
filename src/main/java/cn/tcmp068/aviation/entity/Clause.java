@@ -9,11 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Clause {
     private int clauseId;
-    private String clauseTitle;
-    private int clauseAs;
-   //lawsidint(11)法规外键
     private Catalog catalog;
-    private String clauseContext;
-    private String key;
+    private int lawsId;
+    private int clauseNumber;
+    private String clauseName;
+    private int clauseVersions;
+    private String clauseTitle;
+    private String clauseText;
+    private String clauseKeyword;
 
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Data
@@ -11,11 +12,12 @@ import java.util.Date;
 @NoArgsConstructor
 public class Consult {
     private int consultId;
-    private Clause clause;
-    private String consultContext;
-    private Date consultDate;
-    private User user;
-    private int consultStatus;
     private String consultName;
     private String consultPhone;
+    private Timestamp consultTime;
+    private int consultClause;
+    private String consultText;
+    private Date consultDate;
+    private int consultStatus;
+    private User user;
 }
