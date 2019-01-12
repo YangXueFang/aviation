@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.tcmp068.aviation.clause.dao.ClauseMapper" >
+  <resultMap id="BaseResultMap" type="cn.tcmp068.aviation.entity.Clause" >
+    <id column="clauseId" property="clauseid" jdbcType="INTEGER" />
+    <result column="cateLogid" property="catelogid" jdbcType="INTEGER" />
+    <result column="lawsId" property="lawsid" jdbcType="INTEGER" />
+    <result column="clauseNumber" property="clausenumber" jdbcType="INTEGER" />
+    <result column="clauseName" property="clausename" jdbcType="VARCHAR" />
+    <result column="clauseVersions" property="clauseversions" jdbcType="INTEGER" />
+    <result column="clauseTitle" property="clausetitle" jdbcType="VARCHAR" />
+    <result column="clauseText" property="clausetext" jdbcType="VARCHAR" />
+    <result column="clauseKeyword" property="clausekeyword" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    clauseId, cateLogid, lawsId, clauseNumber, clauseName, clauseVersions, clauseTitle, 
+    clauseText, clauseKeyword
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Clause
+    where clauseId = #{clauseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Clause
+    where clauseId = #{clauseid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Clause" >
+    insert into Clause (clauseId, cateLogid, lawsId, 
+      clauseNumber, clauseName, clauseVersions, 
+      clauseTitle, clauseText, clauseKeyword
+      )
+    values (#{clauseid,jdbcType=INTEGER}, #{catelogid,jdbcType=INTEGER}, #{lawsid,jdbcType=INTEGER}, 
+      #{clausenumber,jdbcType=INTEGER}, #{clausename,jdbcType=VARCHAR}, #{clauseversions,jdbcType=INTEGER}, 
+      #{clausetitle,jdbcType=VARCHAR}, #{clausetext,jdbcType=VARCHAR}, #{clausekeyword,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.tcmp068.aviation.entity.Clause" >
+    insert into Clause
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clauseid != null" >
+        clauseId,
+      </if>
+      <if test="catelogid != null" >
+        cateLogid,
+      </if>
+      <if test="lawsid != null" >
+        lawsId,
+      </if>
+      <if test="clausenumber != null" >
+        clauseNumber,
+      </if>
+      <if test="clausename != null" >
+        clauseName,
+      </if>
+      <if test="clauseversions != null" >
+        clauseVersions,
+      </if>
+      <if test="clausetitle != null" >
+        clauseTitle,
+      </if>
+      <if test="clausetext != null" >
+        clauseText,
+      </if>
+      <if test="clausekeyword != null" >
+        clauseKeyword,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clauseid != null" >
+        #{clauseid,jdbcType=INTEGER},
+      </if>
+      <if test="catelogid != null" >
+        #{catelogid,jdbcType=INTEGER},
+      </if>
+      <if test="lawsid != null" >
+        #{lawsid,jdbcType=INTEGER},
+      </if>
+      <if test="clausenumber != null" >
+        #{clausenumber,jdbcType=INTEGER},
+      </if>
+      <if test="clausename != null" >
+        #{clausename,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseversions != null" >
+        #{clauseversions,jdbcType=INTEGER},
+      </if>
+      <if test="clausetitle != null" >
+        #{clausetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="clausetext != null" >
+        #{clausetext,jdbcType=VARCHAR},
+      </if>
+      <if test="clausekeyword != null" >
+        #{clausekeyword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.tcmp068.aviation.entity.Clause" >
+    update Clause
+    <set >
+      <if test="catelogid != null" >
+        cateLogid = #{catelogid,jdbcType=INTEGER},
+      </if>
+      <if test="lawsid != null" >
+        lawsId = #{lawsid,jdbcType=INTEGER},
+      </if>
+      <if test="clausenumber != null" >
+        clauseNumber = #{clausenumber,jdbcType=INTEGER},
+      </if>
+      <if test="clausename != null" >
+        clauseName = #{clausename,jdbcType=VARCHAR},
+      </if>
+      <if test="clauseversions != null" >
+        clauseVersions = #{clauseversions,jdbcType=INTEGER},
+      </if>
+      <if test="clausetitle != null" >
+        clauseTitle = #{clausetitle,jdbcType=VARCHAR},
+      </if>
+      <if test="clausetext != null" >
+        clauseText = #{clausetext,jdbcType=VARCHAR},
+      </if>
+      <if test="clausekeyword != null" >
+        clauseKeyword = #{clausekeyword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where clauseId = #{clauseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.tcmp068.aviation.entity.Clause" >
+    update Clause
+    set cateLogid = #{catelogid,jdbcType=INTEGER},
+      lawsId = #{lawsid,jdbcType=INTEGER},
+      clauseNumber = #{clausenumber,jdbcType=INTEGER},
+      clauseName = #{clausename,jdbcType=VARCHAR},
+      clauseVersions = #{clauseversions,jdbcType=INTEGER},
+      clauseTitle = #{clausetitle,jdbcType=VARCHAR},
+      clauseText = #{clausetext,jdbcType=VARCHAR},
+      clauseKeyword = #{clausekeyword,jdbcType=VARCHAR}
+    where clauseId = #{clauseid,jdbcType=INTEGER}
+  </update>
+</mapper>
