@@ -11,13 +11,15 @@
     <header>
         <div class="daohang">用户管理 / 用户列表</div>
         <div class="title">用户列表</div>
+        <form method="post">
         <div class="content">
             <label class="ziti">
                 手机号:
-                <input placeholder="手机号" class="layui-input x-input" type="text">
+                <input placeholder="手机号" class="layui-input x-input" type="text" name="userPhone">
             </label>
-            <button class="layui-btn layui-btn-primary x-btn">搜索</button>
+            <button class="layui-btn layui-btn-primary x-btn" id="mohu">搜索</button>
         </div>
+        </form>
     </header>
     <footer>
         <div>
@@ -36,11 +38,8 @@
                     <td>${user.userPhone}</td>
                     <td class="layui-form">
                         <div class="layui-input-block" style="margin-left: 0px">
-                          <#if (user.userType)==0>
-                            <input type="radio" name="w" value="0" title="免费" checked>
-                            <#elseif (user.userType)==1>
-                            <input type="radio" name="w" value="1" title="付费" checked>
-                            </#if>
+                            <input type="radio" name="${user.userId}" value="0" title="免费" <#if (user.userType)==0>checked</#if>>
+                            <input type="radio" name="${user.userId}" value="1" title="付费" <#if (user.userType)==1>checked</#if>>
                         </div>
                     </td>
                     <td>${user.userDate}</td>
@@ -53,17 +52,28 @@
     </footer>
 </div>
 <script src="../static/layui/layui.js"></script>
+<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#mohu").click(function () {
+            $("form").attr("action",listUserController);
+            $("form").submit();
+        })
+    });
+</script>
 <script>
+
     layui.use('form',function () {
         var form = layui.form;
     })
-    layui.use(['laypage','layer'],function () {/.
+    layui.use(['laypage','layer'],function () {
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: 100
+            ,count: 30
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
+                layer.msg(obj.curr)
             }
         });
     })
