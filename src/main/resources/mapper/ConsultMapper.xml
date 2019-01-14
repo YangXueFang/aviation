@@ -16,7 +16,6 @@
             </if>
         </where>
     </select>
-
     <delete id="deleteConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
         delete from consult where consultId=#{consultId}
     </delete>
