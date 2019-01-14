@@ -20,5 +20,4 @@ public class User {
     private Timestamp userDate;
     private int userStatus;
     private List<Consult> consults;
-    private List<FeedBack> feedBacks;
 }
