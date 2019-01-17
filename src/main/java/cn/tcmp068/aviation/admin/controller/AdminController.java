@@ -13,10 +13,7 @@ public class AdminController {
     @Resource
     private AdminServices adminServices;
 
-    @RequestMapping("admin")
-    public String admin(){
-        return "admin";
-    }
+
     @RequestMapping("listAdminController")
     public String queryAll(Model model){
         model.addAttribute("admin",this.adminServices.queryAll());

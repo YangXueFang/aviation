@@ -87,7 +87,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="consult" target="myFrame">咨询列表</a>
+                            <a href="listConsultController" target="myFrame">咨询列表</a>
                         </dd>
                     </dl>
                 </li>
@@ -107,10 +107,10 @@
                             <a href="短信设置.html" target="myFrame">短信设置</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="admin" target="myFrame">管理员管理</a>
+                            <a href="listAdminController" target="myFrame">管理员管理</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="意见反馈列表.html" target="myFrame">意见反馈列表</a>
+                            <a href="listLeaveController" target="myFrame">意见反馈列表</a>
                         </dd>
                     </dl>
                 </li>

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tcmp068.aviation.consult.dao.ConsultMapper">
     <select id="queryAll" resultType="cn.tcmp068.aviation.entity.Consult">
-        select * from consult
+        select * from Consult
         <where>
             <if test="consult!=null">
                 <if test="consult.consultPhone!=null and consult.consultPhone!=''">
@@ -17,6 +17,19 @@
         </where>
     </select>
     <delete id="deleteConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
-        delete from consult where consultId=#{consultId}
+        delete from Consult where consultId=#{consultId}
     </delete>
+    <resultMap id="ConsultMap" type="cn.tcmp068.aviation.entity.Consult" autoMapping="true">
+        <id property="consultId" column="consultId"></id>
+        <association property="user" resultMap="UserMap" autoMapping="true"></association>
+    </resultMap>
+    <resultMap id="UserMap" type="cn.tcmp068.aviation.entity.User" autoMapping="true">
+        <id property="userId" column="userId"></id>
+    </resultMap>
+    <select id="queryAllByuserId"  resultMap="ConsultMap">
+        select * from User,Consult where User.userId=Consult.userId and User.userId=#{1}
+    </select>
+    <!--<select id="queryConsultByuserId" resultMap="ConsultMap">-->
+        <!--select * from User,Consult where User.userId=Consult.userId and User.userId=-->
+    <!--</select>-->
 </mapper>

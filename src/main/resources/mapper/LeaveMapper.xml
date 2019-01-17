@@ -1,93 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.tcmp068.aviation.leave.dao.LeaveMapper" >
-  <resultMap id="BaseResultMap" type="cn.tcmp068.aviation.entity.Leave" >
-    <id column="leaveId" property="leaveid" jdbcType="INTEGER" />
-    <result column="leaveText" property="leavetext" jdbcType="VARCHAR" />
-    <result column="userId" property="userid" jdbcType="INTEGER" />
-    <result column="leaveTime" property="leavetime" jdbcType="TIMESTAMP" />
-    <result column="leaveStatus" property="leavestatus" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    leaveId, leaveText, userId, leaveTime, leaveStatus
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from Leave
-    where leaveId = #{leaveid,jdbcType=INTEGER}
+  <select id="queryAll" resultType="cn.tcmp068.aviation.entity.Leave">
+    select * from `Leave`
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from Leave
-    where leaveId = #{leaveid,jdbcType=INTEGER}
+  <select id="queryByleaveId" parameterType="cn.tcmp068.aviation.entity.Leave" resultType="cn.tcmp068.aviation.entity.Leave">
+    select * from `Leave` where leaveId=#{leaveId}
+  </select>
+  <delete id="deleteLeave" parameterType="cn.tcmp068.aviation.entity.Leave">
+    delete from `Leave` where leaveId=#{leaveId}
   </delete>
-  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Leave" >
-    insert into Leave (leaveId, leaveText, userId, 
-      leaveTime, leaveStatus)
-    values (#{leaveid,jdbcType=INTEGER}, #{leavetext,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
-      #{leavetime,jdbcType=TIMESTAMP}, #{leavestatus,jdbcType=INTEGER})
+  <insert id="addLeave" parameterType="cn.tcmp068.aviation.entity.Leave">
+    insert into `Leave` values(null,#{leave.leaveText},1,now(),1)
   </insert>
-  <insert id="insertSelective" parameterType="cn.tcmp068.aviation.entity.Leave" >
-    insert into Leave
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="leaveid != null" >
-        leaveId,
-      </if>
-      <if test="leavetext != null" >
-        leaveText,
-      </if>
-      <if test="userid != null" >
-        userId,
-      </if>
-      <if test="leavetime != null" >
-        leaveTime,
-      </if>
-      <if test="leavestatus != null" >
-        leaveStatus,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="leaveid != null" >
-        #{leaveid,jdbcType=INTEGER},
-      </if>
-      <if test="leavetext != null" >
-        #{leavetext,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="leavetime != null" >
-        #{leavetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="leavestatus != null" >
-        #{leavestatus,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.tcmp068.aviation.entity.Leave" >
-    update Leave
-    <set >
-      <if test="leavetext != null" >
-        leaveText = #{leavetext,jdbcType=VARCHAR},
-      </if>
-      <if test="userid != null" >
-        userId = #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="leavetime != null" >
-        leaveTime = #{leavetime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="leavestatus != null" >
-        leaveStatus = #{leavestatus,jdbcType=INTEGER},
-      </if>
-    </set>
-    where leaveId = #{leaveid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.tcmp068.aviation.entity.Leave" >
-    update Leave
-    set leaveText = #{leavetext,jdbcType=VARCHAR},
-      userId = #{userid,jdbcType=INTEGER},
-      leaveTime = #{leavetime,jdbcType=TIMESTAMP},
-      leaveStatus = #{leavestatus,jdbcType=INTEGER}
-    where leaveId = #{leaveid,jdbcType=INTEGER}
-  </update>
 </mapper>
