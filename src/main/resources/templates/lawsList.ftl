@@ -32,125 +32,28 @@
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
                 <tr>
-                    <th>标题</th>
-                    <th>标题</th>
-                    <th>标题</th>
-                    <th>标题</th>
-                    <th>标题</th>
+                    <th>部号</th>
+                    <th>法规部号别名</th>
+                    <th>版本号</th>
+                    <th>法规名称</th>
+                    <th>前台显示</th>
                     <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
+                <#list laws.list as laws>
                 <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
+                    <td>${laws.lawsPart}</td>
+                    <td>${laws.lawsId}</td>
+                    <td>${laws.lawsVersion}</td>
+                    <td>${laws.lawsName}</td>
+                    <td>${laws.lawsStauts}</td>
                     <td>
                         <a href="" class="caozuo">编辑</a>
                         <a href="" class="caozuo">删除</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
+                </#list>
                 </tbody>
             </table>
             <div id="page" class="fenye"></div>

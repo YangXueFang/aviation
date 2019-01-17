@@ -50,7 +50,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console" class="layui-this">
-                            <a href="法规列表.html" target="myFrame">法规列表</a>
+                            <a href="queryAllLawsController" target="myFrame">法规列表</a>
                         </dd>
                         <dd data-name="console">
                             <a href="新增法规.html" target="myFrame">新增法规</a>
