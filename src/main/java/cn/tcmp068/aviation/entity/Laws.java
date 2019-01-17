@@ -8,19 +8,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Laws {
-    private Integer lawsid;
+    private String lawsId;
 
-    private Integer lawspart;
+    private Integer lawsPart;
 
-    private Integer lawsversion;
+    private String lawsVersion;
 
-    private String lawsname;
+    private String lawsName;
 
-    private Integer lawslogo;
+    private Integer lawsStauts;
 
-    private String lawsdownload;
+    private String lawsDownload;
 
-    private String lawsstate;
+    private String lawsState;
+
+    private String lawsLogo;
+
+    private String lawsFDBName;
 
 
 }

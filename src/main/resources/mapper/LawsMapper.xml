@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.tcmp068.aviation.laws.dao.LawsMapper" >
-
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tcmp068.aviation.laws.dao.LawsMapper">
+    <select id="queryAll" resultType="cn.tcmp068.aviation.entity.Laws">
+        SELECT * FROM `Laws`
+    </select>
+    <insert id="addLaws" parameterType="cn.tcmp068.aviation.entity.Laws">
+        INSERT INTO Laws VALUES (#{lawsId},#{lawsPart},#{lawsVersion},#{lawsName},#{lawsStauts},#{lawsDownload},#{lawsState},#{lawsLogo},#{lawsFDBName})
+    </insert>
 </mapper>

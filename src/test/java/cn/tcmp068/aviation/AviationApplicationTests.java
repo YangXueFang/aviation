@@ -2,13 +2,13 @@ package cn.tcmp068.aviation;
 
 import cn.tcmp068.aviation.admin.dao.AdminMapper;
 import cn.tcmp068.aviation.consult.dao.ConsultMapper;
-import cn.tcmp068.aviation.entity.Admin;
-import cn.tcmp068.aviation.entity.Consult;
-import cn.tcmp068.aviation.entity.Leave;
-import cn.tcmp068.aviation.entity.User;
+import cn.tcmp068.aviation.entity.*;
+import cn.tcmp068.aviation.laws.dao.LawsMapper;
+import cn.tcmp068.aviation.laws.service.LawsService;
 import cn.tcmp068.aviation.leave.dao.LeaveMapper;
 import cn.tcmp068.aviation.user.dao.UserMapper;
 import cn.tcmp068.aviation.user.services.UserServices;
+import com.github.pagehelper.PageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,6 +32,8 @@ public class AviationApplicationTests {
     private ConsultMapper consultMapper;
     @Resource
     private LeaveMapper leaveMapper;
+    @Resource
+    private LawsService lawsService;
 
     @Test
     public void addLeave(){
@@ -72,6 +74,33 @@ public class AviationApplicationTests {
 //        admin.setAdminStatus(1);
 //        System.out.println(this.adminMapper.addAdmin(admin));
 //    }
+    @Test
+    public void testQueryAllLows(){
+        Laws laws=new Laws();
+        PageInfo<Laws> list=lawsService.queryAll(laws,1,5);
+        for (Laws la : list.getList()){
+            System.out.println(la);
+        }
+    }
+
+
+    @Test
+    public void testAddLaws(){
+        Laws laws=new Laws();
+        laws.setLawsId("CARE-34-R1");
+        laws.setLawsPart(34);
+        laws.setLawsVersion("R1");
+        laws.setLawsName("CARE");
+        laws.setLawsStauts(1);
+        laws.setLawsDownload("https://xiazai");
+        laws.setLawsState("版本说明");
+        laws.setLawsLogo("/LogoCARE.jpg");
+        laws.setLawsFDBName("FDBmingc");
+        System.out.println(this.lawsService.addLaws(laws));
+
+
+
+    }
 
 
 }
