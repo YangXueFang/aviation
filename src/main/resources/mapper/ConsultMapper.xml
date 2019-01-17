@@ -19,17 +19,20 @@
     <delete id="deleteConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
         delete from Consult where consultId=#{consultId}
     </delete>
-    <resultMap id="ConsultMap" type="cn.tcmp068.aviation.entity.Consult" autoMapping="true">
-        <id property="consultId" column="consultId"></id>
-        <association property="user" resultMap="UserMap" autoMapping="true"></association>
-    </resultMap>
-    <resultMap id="UserMap" type="cn.tcmp068.aviation.entity.User" autoMapping="true">
-        <id property="userId" column="userId"></id>
-    </resultMap>
-    <select id="queryAllByuserId"  resultMap="ConsultMap">
-        select * from User,Consult where User.userId=Consult.userId and User.userId=#{1}
+    <!--<resultMap id="ConsultMap" type="cn.tcmp068.aviation.entity.Consult" autoMapping="true">-->
+        <!--<id property="consultId" column="consultId"></id>-->
+        <!--<association property="user" resultMap="UserMap" autoMapping="true"></association>-->
+    <!--</resultMap>-->
+    <!--<resultMap id="UserMap" type="cn.tcmp068.aviation.entity.User" autoMapping="true">-->
+        <!--<id property="userId" column="userId"></id>-->
+    <!--</resultMap>-->
+    <select id="queryAllByuserId"  resultType="cn.tcmp068.aviation.entity.Consult">
+        select * from Consult where userId=#{userId}
     </select>
-    <!--<select id="queryConsultByuserId" resultMap="ConsultMap">-->
-        <!--select * from User,Consult where User.userId=Consult.userId and User.userId=-->
-    <!--</select>-->
+    <select id="queryConsultByuserId" resultType="cn.tcmp068.aviation.entity.Consult">
+        select * from Consult where consultId=#{consultId}
+    </select>
+    <insert id="addConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
+        insert into Consult values (null,#{consultName},#{consultPhone},#{consultClause},#{consultText},now(),#{user.userId},0)
+    </insert>
 </mapper>

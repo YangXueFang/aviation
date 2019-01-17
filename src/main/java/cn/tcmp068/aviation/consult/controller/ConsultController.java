@@ -38,14 +38,14 @@ public class ConsultController {
         return null;
     }
     @RequestMapping("doAddConsultController")
-    public String doAdd(Model model,Consult consult,int userId){
-        model.addAttribute("consult",this.consultServices.addConsult(consult,userId));
+    public String doAdd(Model model,Consult consult){
+        model.addAttribute("consult",this.consultServices.addConsult(consult));
         return null;
     }
 
     @RequestMapping("detailConsultController")
-    public String detail(Model model,int consultId,int userId){
-        model.addAttribute("consult",this.consultServices.queryConsultByuserId(consultId,userId));
+    public String detail(Model model,int consultId){
+        model.addAttribute("consult",this.consultServices.queryConsultByuserId(consultId));
         return null;
     }
 }

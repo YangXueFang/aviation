@@ -5,6 +5,8 @@
     <title></title>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../static/css/Xq.css">
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+
 </head>
 <body>
 <div class="overall">
@@ -16,109 +18,39 @@
         <div>
             <div class="layui-form" style="position: relative;margin: 50px 0px 30px 0px;">
                 <label class="layui-form-label">选择法规：</label>
+                <form method="post" action="/cataLogListController">
                 <div class="layui-input-inline">
-                    <select name="quiz">
+                    <select name="cataLaws">
                         <option value="请选择">请选择</option>
-                        <option value="CCAR-21-R4 民用航空产品和零部件合格审定规定">民用航空产品和零部件合格审定规定</option>
-                        <option value="CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准">CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准</option>
-                        <option value="CCAR-25-R4运输类飞机适航标准">CCAR-25-R4运输类飞机适航标准</option>
-                        <option value="CCAR-26运输类飞机的持续适航和安全改进规定">CCAR-26运输类飞机的持续适航和安全改进规定</option>
-                        <option value="CCAR-27-R1正常类旋翼航空器适航规定">CCAR-27-R1正常类旋翼航空器适航规定</option>
-                        <option value="CCAR-29-R1运输类旋翼航空器适航规定">CCAR-29-R1运输类旋翼航空器适航规定</option>
+                        <#list llist.list as laws>
+                        <option value="${laws.lawsId}">${laws.lawsId}</option>
+                        </#list>
                     </select>
                 </div>
-                <button class="layui-btn-primary x-btn-sm" style="margin-left: 50px;">确定</button>
-                <button class="layui-btn layui-btn-normal" style="position: absolute;right: 0;bottom: 1px;">新增目录</button>
+                <button class="layui-btn-primary x-btn-sm" style="margin-left: 50px;" type="submit">确定</button>
+                </form>
+                <button class="layui-btn layui-btn-normal" style="position: absolute;right: 0;bottom: 1px;" onclick="location.href='cataLogAddController'">新增目录</button>
             </div>
+
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
                 <tr>
-                    <th>意见反馈内容</th>
-                    <th>咨询时间</th>
+                    <th>目录名称</th>
+                    <th>排序</th>
                     <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
+                <#list cataLog.list as cataLog>
                 <tr>
-                    <td>内容</td>
-                    <td>内容</td>
+                    <td>${cataLog.cateText}</td>
+                    <td>${cataLog.cateNumber}</td>
                     <td>
                         <a href="" class="caozuo">编辑</a>
                         <a href="" class="caozuo">删除</a>
                     </td>
                 </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>内容</td>
-                    <td>内容</td>
-                    <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
-                    </td>
-                </tr>
+                </#list>
                 </tbody>
             </table>
             <div id="page" class="fenye"></div>

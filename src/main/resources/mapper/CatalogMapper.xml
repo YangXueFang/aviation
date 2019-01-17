@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.tcmp068.aviation.catalog.dao.CatalogMapper" >
-
+    <resultMap id="cataLogMap" type="cn.tcmp068.aviation.entity.Catalog" autoMapping="true">
+        <id column="catalogId" property="catalogId"></id>
+    </resultMap>
+    <select id="queryAll" resultMap="cataLogMap">
+        select * from Catalog
+        <where>
+            <if test="cataLaws!=null">
+                cataLaws=#{cataLaws}
+            </if>
+        </where>
+    </select>
+    <insert id="addCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
+        insert into CataLog values(null,#{cataLogText},#{cataNumber},#{cataLaws},#{cateRank})
+    </insert>
+    <delete id="deleteCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
+        delete from CataLog where cataLogId=#{cataLogId}
+    </delete>
 </mapper>

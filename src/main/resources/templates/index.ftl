@@ -56,10 +56,10 @@
                             <a href="新增法规.html" target="myFrame">新增法规</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="法规目录管理.html" target="myFrame">法规目录管理</a>
+                            <a href="cataLogListController" target="myFrame">法规目录管理</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="新增目录.html" target="myFrame">新增目录</a>
+                            <a href="cataLogAddController" target="myFrame">新增目录</a>
                         </dd>
                         <dd data-name="console">
                             <a href="条款列表.html" target="myFrame">条款列表</a>

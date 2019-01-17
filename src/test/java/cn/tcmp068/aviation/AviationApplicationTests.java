@@ -39,11 +39,15 @@ public class AviationApplicationTests {
     public void addLeave(){
             Leave leave=new Leave();
             leave.setLeaveText("ww");
-        System.out.println(this.leaveMapper.addLeave(leave,1));
+        System.out.println(this.leaveMapper.addLeave(leave));
     }
     @Test
     public void Consult(){
         System.out.println(this.consultMapper.queryAllByuserId(1));
+    }
+    @Test
+    public void Consultdetail(){
+        System.out.println(this.consultMapper.queryConsultByuserId(11));
     }
 
     @Test

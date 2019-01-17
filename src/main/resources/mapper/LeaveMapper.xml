@@ -11,6 +11,6 @@
     delete from `Leave` where leaveId=#{leaveId}
   </delete>
   <insert id="addLeave" parameterType="cn.tcmp068.aviation.entity.Leave">
-    insert into `Leave` values(null,#{leave.leaveText},1,now(),1)
+    insert into `Leave` values(null,#{leaveText},#{user.userId},now(),1)
   </insert>
 </mapper>

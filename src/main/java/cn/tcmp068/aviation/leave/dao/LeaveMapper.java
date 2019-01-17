@@ -10,5 +10,5 @@ public interface LeaveMapper {
     List<Leave> queryAll(int pageNumber,int pageSize);
     Leave queryByleaveId(int leaveId);
     int deleteLeave(int leaveId);
-    int addLeave(@Param("leave") Leave leave, int userId);//增加
+    int addLeave( Leave leave);//增加
 }

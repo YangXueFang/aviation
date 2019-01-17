@@ -33,7 +33,7 @@ public class LeaveServicesImpl implements LeaveServices {
     }
 
     @Override
-    public int addLeave(Leave leave, int userId) {
-        return this.leaveMapper.addLeave(leave,userId);
+    public int addLeave(Leave leave) {
+        return this.leaveMapper.addLeave(leave);
     }
 }

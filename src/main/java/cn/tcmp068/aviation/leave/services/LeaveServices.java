@@ -10,5 +10,5 @@ public interface LeaveServices {
     PageInfo<Leave> queryAll(int pageNumber, int pageSize);
     Leave queryByleaveId(int leaveId);
     int deleteLeave(int leaveId);
-    int addLeave(Leave leave,int userId);
+    int addLeave(Leave leave);
 }

@@ -36,12 +36,12 @@ public class ConsultServicesImpl implements ConsultServices {
     }
 
     @Override
-    public Consult queryConsultByuserId(int consultId, int userId) {
-        return this.consultMapper.queryConsultByuserId(consultId,userId);
+    public Consult queryConsultByuserId(int consultId) {
+        return this.consultMapper.queryConsultByuserId(consultId);
     }
 
     @Override
-    public int addConsult(Consult consult, int userId) {
-        return this.consultMapper.addConsult(consult,userId);
+    public int addConsult(Consult consult) {
+        return this.consultMapper.addConsult(consult);
     }
 }
