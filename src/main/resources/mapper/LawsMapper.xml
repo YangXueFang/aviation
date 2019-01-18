@@ -4,7 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tcmp068.aviation.laws.dao.LawsMapper">
     <select id="queryAll" resultType="cn.tcmp068.aviation.entity.Laws">
-        SELECT * FROM `Laws`
+        SELECT * FROM Laws
+        <where>
+            <if test="laws!=null">
+            <if test="laws.lawsName!=null">
+               and lawsName=#{laws.lawsName}
+            </if>
+            <if test="laws.lawsPart!=null">
+              and lawsPart=#{laws.lawsPart}
+            </if>
+            </if>
+        </where>
     </select>
     <insert id="addLaws" parameterType="cn.tcmp068.aviation.entity.Laws">
         INSERT INTO Laws VALUES (#{lawsId},#{lawsPart},#{lawsVersion},#{lawsName},#{lawsStauts},#{lawsDownload},#{lawsState},#{lawsLogo},#{lawsFDBName})

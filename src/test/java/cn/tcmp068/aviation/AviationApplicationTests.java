@@ -81,6 +81,8 @@ public class AviationApplicationTests {
     @Test
     public void testQueryAllLows(){
         Laws laws=new Laws();
+        laws.setLawsPart(23);
+
         PageInfo<Laws> list=lawsService.queryAll(laws,1,5);
         for (Laws la : list.getList()){
             System.out.println(la);
