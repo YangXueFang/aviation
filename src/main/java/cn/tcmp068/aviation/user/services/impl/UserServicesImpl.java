@@ -17,9 +17,9 @@ public class UserServicesImpl implements UserServices {
     private UserMapper userMapper;
 
 
-    @Override
+
     public PageInfo<User> queryAll(User user, int pageNumber, int pageSize) {
-        PageHelper.startPage(pageNumber,7);
+        PageHelper.startPage(pageNumber,10);
         List<User> list=this.userMapper.queryAll(user,pageNumber,pageSize);
         PageInfo<User> pageInfo=new PageInfo<>(list);
         return pageInfo;

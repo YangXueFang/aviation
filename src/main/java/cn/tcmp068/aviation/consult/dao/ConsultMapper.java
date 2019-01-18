@@ -10,5 +10,8 @@ public interface ConsultMapper {
 
     List<Consult> queryAll(@Param("consult")Consult consult,int pageNumber,int PageSize);
     int deleteConsult(int consultId);
+    List<Consult> queryAllByuserId(int userId);//历史咨询
+    Consult queryConsultByuserId( int consultId);//查看详情
+    int addConsult( Consult consult);//增加
 
 }

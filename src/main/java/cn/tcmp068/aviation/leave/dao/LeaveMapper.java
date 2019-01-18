@@ -2,17 +2,13 @@ package cn.tcmp068.aviation.leave.dao;
 
 
 import cn.tcmp068.aviation.entity.Leave;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface LeaveMapper {
-    int deleteByPrimaryKey(Integer leaveid);
-
-    int insert(Leave record);
-
-    int insertSelective(Leave record);
-
-    Leave selectByPrimaryKey(Integer leaveid);
-
-    int updateByPrimaryKeySelective(Leave record);
-
-    int updateByPrimaryKey(Leave record);
+    List<Leave> queryAll(int pageNumber,int pageSize);
+    Leave queryByleaveId(int leaveId);
+    int deleteLeave(int leaveId);
+    int addLeave( Leave leave);//增加
 }

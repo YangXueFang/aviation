@@ -15,10 +15,7 @@ public class ConsultController {
     @Resource
     private ConsultServices consultServices;
 
-    @RequestMapping("consult")
-    public String consult(){
-        return "consult";
-    }
+
     @RequestMapping("listConsultController")
     public String queryAll(Model model, Consult consult,@RequestParam(defaultValue = "1",required = false) int pageNumber,@RequestParam(defaultValue = "7",required = false) int pageSize){
         model.addAttribute("consult",this.consultServices.queryAll(consult,pageNumber,pageSize));
@@ -29,5 +26,26 @@ public class ConsultController {
     public String delete(Model model,int consultId){
         model.addAttribute("consult",this.consultServices.deleteConsult(consultId));
         return "redirect:/listConsultController";
+    }
+
+    @RequestMapping("userListConsult")
+    public String queryUserAll(Model model,int userId){
+        model.addAttribute("consult",this.consultServices.queryAllByuserId(userId));
+        return null;
+    }
+    @RequestMapping("toAddConsultController")
+    public String toAdd(){
+        return null;
+    }
+    @RequestMapping("doAddConsultController")
+    public String doAdd(Model model,Consult consult){
+        model.addAttribute("consult",this.consultServices.addConsult(consult));
+        return null;
+    }
+
+    @RequestMapping("detailConsultController")
+    public String detail(Model model,int consultId){
+        model.addAttribute("consult",this.consultServices.queryConsultByuserId(consultId));
+        return null;
     }
 }

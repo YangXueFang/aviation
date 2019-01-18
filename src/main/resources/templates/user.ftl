@@ -70,10 +70,12 @@
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: 30
+            ,count: ${user.getTotal()}
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
-                layer.msg(obj.curr)
+                $.post('/listUserController',{pageNumber:obj.curr},function (data) {
+
+                },'json');
             }
         });
     })

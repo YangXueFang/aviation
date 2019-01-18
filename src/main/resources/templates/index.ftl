@@ -50,16 +50,16 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console" class="layui-this">
-                            <a href="法规列表.html" target="myFrame">法规列表</a>
+                            <a href="queryAllLawsController" target="myFrame">法规列表</a>
                         </dd>
                         <dd data-name="console">
                             <a href="新增法规.html" target="myFrame">新增法规</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="法规目录管理.html" target="myFrame">法规目录管理</a>
+                            <a href="cataLogListController" target="myFrame">法规目录管理</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="新增目录.html" target="myFrame">新增目录</a>
+                            <a href="cataLogAddController" target="myFrame">新增目录</a>
                         </dd>
                         <dd data-name="console">
                             <a href="条款列表.html" target="myFrame">条款列表</a>
@@ -87,7 +87,7 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="consult" target="myFrame">咨询列表</a>
+                            <a href="listConsultController" target="myFrame">咨询列表</a>
                         </dd>
                     </dl>
                 </li>
@@ -107,10 +107,10 @@
                             <a href="短信设置.html" target="myFrame">短信设置</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="admin" target="myFrame">管理员管理</a>
+                            <a href="listAdminController" target="myFrame">管理员管理</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="意见反馈列表.html" target="myFrame">意见反馈列表</a>
+                            <a href="listLeaveController" target="myFrame">意见反馈列表</a>
                         </dd>
                     </dl>
                 </li>

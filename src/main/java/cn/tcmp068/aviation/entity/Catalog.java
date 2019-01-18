@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Catalog {
     private int catalogId;
-    private int cataLaws;
+    private String cataLaws;
     private String cateText;
     private int cateGrade;
     private int cateRank;

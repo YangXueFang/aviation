@@ -1,106 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.tcmp068.aviation.catalog.dao.CatalogMapper" >
-  <resultMap id="BaseResultMap" type="cn.tcmp068.aviation.entity.Catalog" >
-    <id column="catalogId" property="catalogid" jdbcType="INTEGER" />
-    <result column="cataLaws" property="catalaws" jdbcType="INTEGER" />
-    <result column="cateText" property="catetext" jdbcType="VARCHAR" />
-    <result column="cateGrade" property="categrade" jdbcType="INTEGER" />
-    <result column="cateRank" property="caterank" jdbcType="INTEGER" />
-    <result column="cateNumber" property="catenumber" jdbcType="INTEGER" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    catalogId, cataLaws, cateText, cateGrade, cateRank, cateNumber
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from Catalog
-    where catalogId = #{catalogid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from Catalog
-    where catalogId = #{catalogid,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Catalog" >
-    insert into Catalog (catalogId, cataLaws, cateText, 
-      cateGrade, cateRank, cateNumber
-      )
-    values (#{catalogid,jdbcType=INTEGER}, #{catalaws,jdbcType=INTEGER}, #{catetext,jdbcType=VARCHAR}, 
-      #{categrade,jdbcType=INTEGER}, #{caterank,jdbcType=INTEGER}, #{catenumber,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="cn.tcmp068.aviation.entity.Catalog" >
-    insert into Catalog
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="catalogid != null" >
-        catalogId,
-      </if>
-      <if test="catalaws != null" >
-        cataLaws,
-      </if>
-      <if test="catetext != null" >
-        cateText,
-      </if>
-      <if test="categrade != null" >
-        cateGrade,
-      </if>
-      <if test="caterank != null" >
-        cateRank,
-      </if>
-      <if test="catenumber != null" >
-        cateNumber,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="catalogid != null" >
-        #{catalogid,jdbcType=INTEGER},
-      </if>
-      <if test="catalaws != null" >
-        #{catalaws,jdbcType=INTEGER},
-      </if>
-      <if test="catetext != null" >
-        #{catetext,jdbcType=VARCHAR},
-      </if>
-      <if test="categrade != null" >
-        #{categrade,jdbcType=INTEGER},
-      </if>
-      <if test="caterank != null" >
-        #{caterank,jdbcType=INTEGER},
-      </if>
-      <if test="catenumber != null" >
-        #{catenumber,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.tcmp068.aviation.entity.Catalog" >
-    update Catalog
-    <set >
-      <if test="catalaws != null" >
-        cataLaws = #{catalaws,jdbcType=INTEGER},
-      </if>
-      <if test="catetext != null" >
-        cateText = #{catetext,jdbcType=VARCHAR},
-      </if>
-      <if test="categrade != null" >
-        cateGrade = #{categrade,jdbcType=INTEGER},
-      </if>
-      <if test="caterank != null" >
-        cateRank = #{caterank,jdbcType=INTEGER},
-      </if>
-      <if test="catenumber != null" >
-        cateNumber = #{catenumber,jdbcType=INTEGER},
-      </if>
-    </set>
-    where catalogId = #{catalogid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="cn.tcmp068.aviation.entity.Catalog" >
-    update Catalog
-    set cataLaws = #{catalaws,jdbcType=INTEGER},
-      cateText = #{catetext,jdbcType=VARCHAR},
-      cateGrade = #{categrade,jdbcType=INTEGER},
-      cateRank = #{caterank,jdbcType=INTEGER},
-      cateNumber = #{catenumber,jdbcType=INTEGER}
-    where catalogId = #{catalogid,jdbcType=INTEGER}
-  </update>
+    <resultMap id="cataLogMap" type="cn.tcmp068.aviation.entity.Catalog" autoMapping="true">
+        <id column="catalogId" property="catalogId"></id>
+    </resultMap>
+    <select id="queryAll" resultMap="cataLogMap">
+        select * from Catalog
+        <where>
+            <if test="cataLaws!=null">
+                cataLaws=#{cataLaws}
+            </if>
+        </where>
+    </select>
+    <insert id="addCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
+        insert into CataLog values(null,#{cataLogText},#{cataNumber},#{cataLaws},#{cateRank})
+    </insert>
+    <delete id="deleteCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
+        delete from CataLog where cataLogId=#{cataLogId}
+    </delete>
 </mapper>

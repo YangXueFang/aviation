@@ -29,4 +29,19 @@ public class ConsultServicesImpl implements ConsultServices {
     public int deleteConsult(int consultId) {
         return this.consultMapper.deleteConsult(consultId);
     }
+
+    @Override
+    public List<Consult> queryAllByuserId(int userId) {
+        return this.consultMapper.queryAllByuserId(userId);
+    }
+
+    @Override
+    public Consult queryConsultByuserId(int consultId) {
+        return this.consultMapper.queryConsultByuserId(consultId);
+    }
+
+    @Override
+    public int addConsult(Consult consult) {
+        return this.consultMapper.addConsult(consult);
+    }
 }
