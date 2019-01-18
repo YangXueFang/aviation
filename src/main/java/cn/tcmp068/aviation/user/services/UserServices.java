@@ -7,4 +7,8 @@ import java.util.List;
 
 public interface UserServices {
     PageInfo<User> queryAll(User user, int pageNumber, int pageSize);
+
+    User login(String userPhone,String userPassword);
+    int insertUser(User user);
+    int updateUser(User user);
 }

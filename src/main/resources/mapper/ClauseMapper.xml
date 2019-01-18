@@ -13,11 +13,11 @@
     <result column="clauseKeyword" property="clausekeyword" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    clauseId, cateLogid, lawsId, clauseNumber, clauseName, clauseVersions, clauseTitle, 
+    clauseId, cateLogid, lawsId, clauseNumber, clauseName, clauseVersions, clauseTitle,
     clauseText, clauseKeyword
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from Clause
     where clauseId = #{clauseid,jdbcType=INTEGER}
@@ -27,12 +27,12 @@
     where clauseId = #{clauseid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Clause" >
-    insert into Clause (clauseId, cateLogid, lawsId, 
-      clauseNumber, clauseName, clauseVersions, 
+     insert into Clause (clauseId, cateLogid, lawsId,
+      clauseNumber, clauseName, clauseVersions,
       clauseTitle, clauseText, clauseKeyword
       )
-    values (#{clauseid,jdbcType=INTEGER}, #{catelogid,jdbcType=INTEGER}, #{lawsid,jdbcType=INTEGER}, 
-      #{clausenumber,jdbcType=INTEGER}, #{clausename,jdbcType=VARCHAR}, #{clauseversions,jdbcType=INTEGER}, 
+    values (#{clauseid,jdbcType=INTEGER}, #{cateLogid,jdbcType=INTEGER}, #{lawsid,jdbcType=INTEGER},
+      #{clausenumber,jdbcType=INTEGER}, #{clausename,jdbcType=VARCHAR}, #{clauseversions,jdbcType=INTEGER},
       #{clausetitle,jdbcType=VARCHAR}, #{clausetext,jdbcType=VARCHAR}, #{clausekeyword,jdbcType=VARCHAR}
       )
   </insert>

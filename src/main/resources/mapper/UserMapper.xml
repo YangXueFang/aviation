@@ -13,4 +13,8 @@
            </if>
        </where>
    </select>
+
+    <select id="login">
+        select * from User where userPhone=#{userPhone} and userPassword=#{userPassword}
+    </select>
 </mapper>

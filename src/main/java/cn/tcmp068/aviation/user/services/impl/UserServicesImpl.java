@@ -24,4 +24,20 @@ public class UserServicesImpl implements UserServices {
         PageInfo<User> pageInfo=new PageInfo<>(list);
         return pageInfo;
     }
+
+    @Override
+    public User login(String userPhone, String userPassword) {
+
+        return userMapper.login(userPhone,userPassword);
+    }
+
+    @Override
+    public int insertUser(User user) {
+        return userMapper.insertUser(user);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return userMapper.updateUser(user);
+    }
 }

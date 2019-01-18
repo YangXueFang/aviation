@@ -9,14 +9,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Clause {
 
-    private int clauseId;
+
+    private Integer clauseid;
+
+    private Integer cateLogid;
+
+    private Integer lawsid;
+
+    private Integer clausenumber;
+
+    private String clausename;
+
+    private Integer clauseversions;
+
+    private String clausetitle;
+
+    private String clausetext;
+
+    private String clausekeyword;
     private Catalog catalog;
-    private int lawsId;
-    private int clauseNumber;
-    private String clauseName;
-    private int clauseVersions;
-    private String clauseTitle;
-    private String clauseText;
-    private String clauseKeyword;
+
 
 }
