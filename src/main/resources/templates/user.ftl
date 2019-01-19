@@ -12,13 +12,14 @@
         <div class="daohang">用户管理 / 用户列表</div>
         <div class="title">用户列表</div>
         <form method="post">
-        <div class="content">
-            <label class="ziti">
-                手机号:
-                <input placeholder="手机号" class="layui-input x-input" type="text" name="userPhone">
-            </label>
-            <button class="layui-btn layui-btn-primary x-btn" id="mohu">搜索</button>
-        </div>
+            <div class="content">
+                <label class="ziti">
+                    手机号:${phone}
+                    <input type="hidden" name="" value="${phone}" id="phone">
+                    <input placeholder="手机号" class="layui-input x-input" type="text" name="userPhone" id="userPhone">
+                </label>
+                <button class="layui-btn layui-btn-primary x-btn" id="mohu">搜索</button>
+            </div>
         </form>
     </header>
     <footer>
@@ -55,6 +56,13 @@
 <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
     $(function(){
+        var userPhone=$("#userPhone").val();//文本值
+        var phone=parseInt($("#phone").val());//隐藏域值
+        if(phone!=null && phone!=1){
+            $("#userPhone").val(phone);
+        }else{
+            $("#userPhone").val("");
+        }
         $("#mohu").click(function () {
             $("form").attr("action",listUserController);
             $("form").submit();
@@ -62,7 +70,9 @@
     });
 </script>
 <script>
-
+    var a="${user.pageNum}";
+    var b="${user.pageSize}";
+    var c="${user.getTotal()}"
     layui.use('form',function () {
         var form = layui.form;
     })
@@ -70,12 +80,17 @@
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: ${user.getTotal()}
+            ,count: c
+            ,curr:  a //获取起始页
+            ,hash: 'fenye'
+            ,limit: b
+            ,limits: [10, 20, 30 ,50 ,100]
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            ,jump: function(obj){
-                $.post('/listUserController',{pageNumber:obj.curr},function (data) {
-
-                },'json');
+            ,jump: function(obj,first){
+                if(!first){
+                    var phone=parseInt($("#phone").val());
+                    window.location.href="listUserController?userPhone="+phone+"&pageNumber="+obj.curr+"&pageSize="+obj.limit;
+                }
             }
         });
     })

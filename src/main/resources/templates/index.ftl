@@ -62,7 +62,7 @@
                             <a href="cataLogAddController" target="myFrame">新增目录</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="条款列表.html" target="myFrame">条款列表</a>
+                            <a href="queryAllClauseController" target="myFrame">条款列表</a>
                         </dd>
                         <dd data-name="console">
                             <a href="toAdd" target="myFrame">新增条款</a>
@@ -120,7 +120,7 @@
 
 
     <div class="layui-body" style="overflow: hidden;">
-        <iframe name="myFrame" src="法规列表.html" frameborder="0" style="width: 100%;height: 100%;">
+        <iframe name="myFrame" src="queryAllLawsController" frameborder="0" style="width: 100%;height: 100%;">
 
         </iframe>
     </div>

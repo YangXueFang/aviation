@@ -18,9 +18,9 @@ public class ConsultServicesImpl implements ConsultServices {
 
 
     @Override
-    public PageInfo<Consult> queryAll(Consult consult, int pageNumber, int PageSize) {
-        PageHelper.startPage(pageNumber,7);
-        List<Consult> list = this.consultMapper.queryAll(consult, pageNumber, 7);
+    public PageInfo<Consult> queryAll(Consult consult, int pageNumber, int pageSize) {
+        PageHelper.startPage(pageNumber,pageSize);
+        List<Consult> list = this.consultMapper.queryAll(consult, pageNumber,pageSize);
         PageInfo<Consult> pageInfo=new PageInfo<>(list);
         return pageInfo;
     }

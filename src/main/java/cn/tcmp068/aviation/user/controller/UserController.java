@@ -21,32 +21,17 @@ public class UserController {
     @Resource
     private UserServices userServices;
 
-    @RequestMapping("user")
-    public String user() {
-        return "user";
-    }
 
-//    @ResponseBody
-    @RequestMapping("listUserController")
-    public String queryAll(HttpServletResponse response, Model model, User user, @RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize) {
-        model.addAttribute("user", this.userServices.queryAll(user, pageNumber, pageSize));
-//        PageInfo<User> list = this.userServices.queryAll(user,pageNumber,pageSize);
-//        System.out.print(this.userServices.queryAll(user, pageNumber, pageSize));
-//        PageInfo<User> pageInfo = this.userServices.queryAll(user, pageNumber, pageSize);
-//
-//        response.setCharacterEncoding("UTF-8");
-//        response.setContentType("application/json; charset=utf-8");
-//        PrintWriter out = null;
-//        try {
-//            out = response.getWriter();
-//            out.append(list.toString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }finally {
-//            out.close();
-//        }
-//
+//    @RequestMapping("listUserController")
+//    public String queryAll(HttpServletResponse response, Model model, User user, @RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize) {
+//        model.addAttribute("user", this.userServices.queryAll(user, pageNumber, pageSize));
+//        return "user";
 //    }
+
+    @RequestMapping("listUserController")
+    public String queryAll(Model model,@RequestParam(defaultValue = "1",required = false)String userPhone, @RequestParam(defaultValue = "1",required = false) int pageNumber, @RequestParam(defaultValue = "10",required = false) int pageSize){
+        model.addAttribute("user",this.userServices.queryAll(userPhone,pageNumber,pageSize));
+        model.addAttribute("phone",userPhone);
         return "user";
     }
 }

@@ -8,26 +8,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Clause {
-
-
-    private Integer clauseid;
-
-    private Integer cateLogid;
-
-    private Integer lawsid;
-
-    private Integer clausenumber;
-
-    private String clausename;
-
-    private Integer clauseversions;
-
-    private String clausetitle;
-
-    private String clausetext;
-
-    private String clausekeyword;
+    private Integer catelogId;
+    private int clauseId;
     private Catalog catalog;
+    private Laws lawsId;
+    private int clauseNumber;
+    private String clauseName;
+    private int clauseVersions;
+    private String clauseTitle;
+    private String clauseText;
+    private String clauseKeyword;
+
 
 
 }

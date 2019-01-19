@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ConsultServices {
 
-    PageInfo<Consult> queryAll(Consult consult, int pageNumber, int PageSize);
+    PageInfo<Consult> queryAll(Consult consult, int pageNumber, int pageSize);
     int deleteConsult(int consultId);
     List<Consult> queryAllByuserId(int userId);//历史咨询
     Consult queryConsultByuserId(int consultId);//查看详情
