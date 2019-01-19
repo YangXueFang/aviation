@@ -76,6 +76,7 @@
         var form = layui.form;
         form.on('select(tests)',function(data){
            var cataLaws=$("select").val();
+           console.log(data)
             $.post("ajax",{"cataLaws":cataLaws},function(returnData,status){
                 if ("success"==status) {
                     var result = "<option value='0'>--请选择--</option>";

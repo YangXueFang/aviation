@@ -3,6 +3,7 @@ package cn.tcmp068.aviation.clause.controller;
 import cn.tcmp068.aviation.clause.services.ClauseServices;
 import cn.tcmp068.aviation.entity.Clause;
 import cn.tcmp068.aviation.entity.Laws;
+import cn.tcmp068.aviation.laws.service.LawsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,21 +12,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 @Controller
 public class ClauserController {
     @Autowired
     private ClauseServices clauseServices;
-
+    @Resource
+    private LawsService lawsService;
     @RequestMapping("toAdd")
-    public String toAdd(){
+    public String toAdd(Model model,Laws laws,@RequestParam(defaultValue = "1",required = false) int pageNumber,@RequestParam(defaultValue = "10",required = false)int pageSize){
+        model.addAttribute("llist",this.lawsService.queryAll(laws,pageNumber,pageSize));
+        System.out.println(this.lawsService.queryAll(laws,pageNumber,pageSize)+"=============================");
         return "addClause";
     }
 
     @RequestMapping("doAdd")
-    public String doAdd(Map map,Clause clause){
-        map.put("qwe",clauseServices.insert(clause));
+    public String doAdd(Model model,Clause clause){
+        model.addAttribute("clause",clauseServices.insert(clause));
+
         return "clause";
     }
 
