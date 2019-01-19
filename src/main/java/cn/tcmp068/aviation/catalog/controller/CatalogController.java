@@ -3,6 +3,7 @@ package cn.tcmp068.aviation.catalog.controller;
 import cn.tcmp068.aviation.catalog.services.CatalogServices;
 import cn.tcmp068.aviation.entity.Catalog;
 import cn.tcmp068.aviation.entity.Laws;
+import com.github.pagehelper.PageInfo;
 import net.sf.json.JSONArray;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
@@ -53,6 +54,7 @@ public class CatalogController {
             }
             blist.clear();
         }
+       // PageInfo<Catalog> pageInfo=new PageInfo<>(list);
         model.addAttribute("list",list);
         model.addAttribute("llist",this.catalogServices.queryAll(laws,pageNumber,pageSize));
         return "lawsCatalog";
