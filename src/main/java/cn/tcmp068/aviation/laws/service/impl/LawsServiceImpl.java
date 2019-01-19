@@ -17,6 +17,8 @@ public class LawsServiceImpl implements LawsService {
 
     public PageInfo<Laws> queryAll(Laws laws, int pageNumber, int pageSize) {
         PageHelper.startPage(pageNumber,pageSize);
+        PageInfo<Laws> page=new PageInfo<>();
+        page.setTotal(page.getTotal());
         List<Laws> list=this.lawsMapper.queryAll(laws,pageNumber,5);
         PageInfo<Laws> pageInfo=new PageInfo<>(list);
         return pageInfo;

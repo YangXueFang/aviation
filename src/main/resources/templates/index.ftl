@@ -53,7 +53,7 @@
                             <a href="queryAllLawsController" target="myFrame">法规列表</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="新增法规.html" target="myFrame">新增法规</a>
+                            <a href="toAddLawsController" target="myFrame">新增法规</a>
                         </dd>
                         <dd data-name="console">
                             <a href="cataLogListController" target="myFrame">法规目录管理</a>
@@ -120,7 +120,7 @@
 
 
     <div class="layui-body" style="overflow: hidden;">
-        <iframe name="myFrame" src="法规列表.html" frameborder="0" style="width: 100%;height: 100%;">
+        <iframe name="myFrame" src="queryAllLawsController" frameborder="0" style="width: 100%;height: 100%;">
 
         </iframe>
     </div>
