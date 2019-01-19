@@ -58,7 +58,7 @@
                 </tr>
                 </#list>
                 </tbody>
-            </table>4
+            </table>
             <div id="page" class="fenye"></div>
         </div>
     </footer>
@@ -72,17 +72,13 @@
         laypage.render({
             elem: 'page'
             ,count: total
+            ,curr:${laws.pageNum}
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            ,jump: function(obj){
-                if (obj.curr==1){
-                }else{
+            ,jump: function(obj,first){
+                if (!first){
                     // JSON.stringify(obj);
                     window.location="queryAllLawsController?PageNumber="+obj.curr;
                 }
-
-
-
-
             }
         });
     })

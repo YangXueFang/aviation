@@ -56,6 +56,7 @@
                             <i class="layui-icon"></i>
                             <p>点击上传，或将文件拖拽到此处</p>
                         </div>
+                        <input name="lawsLogo"/>
                         <div style="position: absolute;left:300px;bottom: 0;">
                             <p>图片格式支持：jpg/png，</p>
 
@@ -76,14 +77,16 @@
                 <tr>
                 <td style="vertical-align: top;">*法规版本说明:</td>
                 <td>
-                    <div id="froala-editor" style="width: 500px;" name="lawsState">
+                    <#--<div id="froala-editor" style="width: 500px;">-->
+                        <textarea id="froala-editor" name="lawsState" hidden></textarea>
+                <#--</div>-->
 
-                </div>
 
                     <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;" type="submit">保存</button>
                 </td>
             </tr>
                 </table>
+
             </form>
         </div>
 
@@ -98,7 +101,7 @@
 <script src="../static/layui/layui.js"></script>
 <script>
     $(function() {
-        $('div#froala-editor').froalaEditor({
+        $('#froala-editor').froalaEditor({
             language: 'zh_cn',
             dragInline: true,
             toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'undo', 'redo'],
