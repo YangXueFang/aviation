@@ -18,12 +18,12 @@ import javax.annotation.Resource;
 @SpringBootTest
 public class ClauseTest {
 
-    @Autowired
-    private ClauseServices clauseServices;
+//    @Autowired
+//    private ClauseServices clauseServices;
 
-    @Test
-    public void testInsert(){
-        System.out.println(clauseServices);
+//    @Test
+//    public void testInsert(){
+//        System.out.println(clauseServices);
 
 //        Catalog catalog=new Catalog();
 //        catalog.setCatalogId(1);
@@ -33,16 +33,16 @@ public class ClauseTest {
 //        catalog.setCateRank(3);
 //        catalog.setCateText("asd");
 
-       Clause clause=new Clause();
-       clause.setCateLogid(1);
+//       Clause clause=new Clause();
+//       clause.setCateLogid(1);
+//
+//        clause.setLawsid(1);
+//        clause.setClausenumber(1);
+//        clause.setClausename("qwe");
+//        clause.setClauseversions(213);
+//        clause.setClausetitle("zxc");
+//        clause.setClausetext("asdasdad");
 
-        clause.setLawsid(1);
-        clause.setClausenumber(1);
-        clause.setClausename("qwe");
-        clause.setClauseversions(213);
-        clause.setClausetitle("zxc");
-        clause.setClausetext("asdasdad");
+//        clauseServices.insert(clause);
 
-        clauseServices.insert(clause);
-    }
 }

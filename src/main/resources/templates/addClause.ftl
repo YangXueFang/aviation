@@ -26,39 +26,24 @@
                 <tr>
                     <td style="width: 300px;">*法规:</td>
                     <td class="layui-form">
-                        <#--<div class="layui-input-inline x-select">-->
-                            <#--<select name="quiz">-->
-                                <#--<option value="请选择">请选择</option>-->
-                                <#--<option value="CCAR-21-R4 民用航空产品和零部件合格审定规定">民用航空产品和零部件合格审定规定</option>-->
-                                <#--<option value="CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准">CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准</option>-->
-                                <#--<option value="CCAR-25-R4运输类飞机适航标准">CCAR-25-R4运输类飞机适航标准</option>-->
-                                <#--<option value="CCAR-26运输类飞机的持续适航和安全改进规定">CCAR-26运输类飞机的持续适航和安全改进规定</option>-->
-                                <#--<option value="CCAR-27-R1正常类旋翼航空器适航规定">CCAR-27-R1正常类旋翼航空器适航规定</option>-->
-                                <#--<option value="CCAR-29-R1运输类旋翼航空器适航规定">CCAR-29-R1运输类旋翼航空器适航规定</option>-->
-                            <#--</select>-->
-                        <#--</div>-->
-                            <input type="text" id="lawsId"></input>
+                        <div class="layui-input-inline x-select">
+                            <select name="quiz">
+                                <option value="请选择">请选择</option>
+                                <option value="CCAR-21-R4 民用航空产品和零部件合格审定规定">民用航空产品和零部件合格审定规定</option>
+                            </select>
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <td>*所在目录:</td>
                     <td class="layui-form">
-                        <#--<div class="layui-input-inline x-select">-->
-                            <#--<select name="quiz">-->
-                                <#--<option value="请选择">请选择</option>-->
-                                <#--<option value="CCAR-21-R4 民用航空产品和零部件合格审定规定">民用航空产品和零部件合格审定规定</option>-->
-                                <#--<option value="CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准">CCAR-23-R3正常类、实用类、特技类和通勤类飞机适航标准</option>-->
-                                <#--<option value="CCAR-25-R4运输类飞机适航标准">CCAR-25-R4运输类飞机适航标准</option>-->
-                                <#--<option value="CCAR-26运输类飞机的持续适航和安全改进规定">CCAR-26运输类飞机的持续适航和安全改进规定</option>-->
-                                <#--<option value="CCAR-27-R1正常类旋翼航空器适航规定">CCAR-27-R1正常类旋翼航空器适航规定</option>-->
-                                <#--<option value="CCAR-29-R1运输类旋翼航空器适航规定">CCAR-29-R1运输类旋翼航空器适航规定</option>-->
-                            <#--</select>-->
-                        <#--</div>-->
-                            <#--<input type="text" id="catelogid" value="1"></input>-->
-                            <input class="layui-input x-input" type="text" id="cateLogid">
-
+                        <div class="layui-input-inline x-select">
+                            <select name="quiz">
+                                <option value="请选择">请选择</option>
+                                <option value="CCAR-21-R4 民用航空产品和零部件合格审定规定">民用航空产品和零部件合格审定规定</option>
+                            </select>
+                        </div>
                     </td>
-
                 </tr>
                 <tr>
                     <td>*条款编号:</td>
@@ -79,19 +64,18 @@
                 <tr>
                     <td>*条款内容:</td>
                     <td>
-                        <input type="text" id="clauseText">
-                        <#--<div id="froala-editor" style="width: 500px;">-->
-                          <#---->
-                        <#--</div>-->
+                        <div id="froala-editor" style="width: 500px;">
+
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <td>关键词:</td>
-                    <td><input class="layui-input x-input" type="text" id="clauseKeyword"></td>
+                    <td><input class="layui-input x-input" type="text" id="clauseKeyword" value="" name=""></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
-                        <input type="submit" id="btn" class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;">保存</input>
+                        <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;" type="submit">保存</button>
 
                         <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;">复制条款</button>
                     </td>
@@ -108,17 +92,6 @@
 <script src="../static/js/zh_cn.js"></script>
 <script src="../static/layui/layui.js"></script>
 <script>
-
-
-
-    $(function() {
-
-        $('#btn').click(function () {
-            var i=$('#catelogid').val();
-            alert(i);
-        })
-
-
         $('div#froala-editor').froalaEditor({
             language: 'zh_cn',
             dragInline: true,

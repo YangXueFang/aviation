@@ -17,13 +17,20 @@ public class UserServicesImpl implements UserServices {
     private UserMapper userMapper;
 
 
-
-    public PageInfo<User> queryAll(User user, int pageNumber, int pageSize) {
-        PageHelper.startPage(pageNumber,10);
-        List<User> list=this.userMapper.queryAll(user,pageNumber,pageSize);
+    @Override
+    public PageInfo<User> queryAll(String userPhone, int pageNumber, int pageSize) {
+        PageHelper.startPage(pageNumber,pageSize);
+        List<User> list=this.userMapper.queryAll(userPhone,pageNumber,pageSize);
         PageInfo<User> pageInfo=new PageInfo<>(list);
         return pageInfo;
     }
+//
+//    public PageInfo<User> queryAll(User user, int pageNumber, int pageSize) {
+//        PageHelper.startPage(pageNumber,10);
+//        List<User> list=this.userMapper.queryAll(user,pageNumber,pageSize);
+//        PageInfo<User> pageInfo=new PageInfo<>(list);
+//        return pageInfo;
+//    }
 
     @Override
     public User login(String userPhone, String userPassword) {

@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 public interface UserServices {
-    PageInfo<User> queryAll(User user, int pageNumber, int pageSize);
+    PageInfo<User> queryAll(String userPhone,int pageNumber,int pageSize);
 
     User login(String userPhone,String userPassword);
     int insertUser(User user);

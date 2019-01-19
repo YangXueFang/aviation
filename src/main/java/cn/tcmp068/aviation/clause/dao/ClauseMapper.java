@@ -1,17 +1,15 @@
 package cn.tcmp068.aviation.clause.dao;
 
 import cn.tcmp068.aviation.entity.Clause;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ClauseMapper {
-    int deleteByPrimaryKey(Integer clauseid);
+
 
     int insert(Clause record);
+    List<Clause> queryAllClause(@Param("clause") Clause clause);
+    int deleteClause(int clauseId);
 
-    int insertSelective(Clause record);
-
-    Clause selectByPrimaryKey(Integer clauseid);
-
-    int updateByPrimaryKeySelective(Clause record);
-
-    int updateByPrimaryKey(Clause record);
 }
