@@ -17,8 +17,18 @@ public class ConsultController {
 
 
     @RequestMapping("listConsultController")
-    public String queryAll(Model model, Consult consult,@RequestParam(defaultValue = "1",required = false) int pageNumber,@RequestParam(defaultValue = "7",required = false) int pageSize){
-        model.addAttribute("consult",this.consultServices.queryAll(consult,pageNumber,pageSize));
+    public String queryAll(Model model,String consultPhone,String consultText, Consult consult,@RequestParam(defaultValue = "1") int pageNum,@RequestParam(defaultValue = "10",required = false) int pageSize){
+
+        if(consultPhone!=null || consultText!=null){
+            Consult c=new Consult();
+            c.setConsultPhone(consultPhone);
+            c.setConsultText(consultText);
+            System.out.println(c+"=========================================>");
+            model.addAttribute("consult", this.consultServices.queryAll(c, pageNum, pageSize));
+        }else{
+            System.out.println(pageNum+"++++++++++++++++++++++++++++++++ ");
+            model.addAttribute("consult", this.consultServices.queryAll(consult, pageNum, pageSize));
+        }
         return "consult";
     }
 

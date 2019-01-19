@@ -5,7 +5,6 @@
     <title></title>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../static/css/Xq.css">
-    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
 
 </head>
 <body>
@@ -41,7 +40,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <#list cataLog.list as cataLog>
+                <#list list  as cataLog>
                 <tr>
                     <td>${cataLog.cateText}</td>
                     <td>${cataLog.cateNumber}</td>
@@ -71,7 +70,8 @@
             ,count: 100
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
-            }
+            }  //这是啥?
+
         });
     })
 </script>

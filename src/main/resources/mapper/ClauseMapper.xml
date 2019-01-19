@@ -2,4 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.tcmp068.aviation.clause.dao.ClauseMapper" >
 
+  <resultMap id="ClauseMap" type="cn.tcmp068.aviation.entity.Clause" autoMapping="true">
+    <id column="clauseId" property="clauseId"></id>
+    <association property="lawsId" resultMap="LawsMap"></association>
+  </resultMap>
+  <resultMap id="LawsMap" type="cn.tcmp068.aviation.entity.Laws" autoMapping="true">
+    <id column="lawsId" property="lawsId"></id>
+  </resultMap>
+  <select id="queryAllClause" parameterType="cn.tcmp068.aviation.entity.Clause" resultMap="ClauseMap">
+    SELECT * FROM Clause,Catalog
+    <where>
+      Clause.cateLogid=Catalog.catalogId
+      <if test="clause != null">
+        <if test="clause.lawsId != null">
+          <if test="clause.lawsId.lawsId != null and clause.lawsId.lawsId != 'kong'">
+            and Clause.lawsId=#{clause.lawsId.lawsId}
+          </if>
+        </if>
+        <if test="clause.clauseNumber != null and clause.clauseNumber != 0">
+          and Clause.clauseNumber = #{clause.clauseNumber}
+        </if>
+        <if test="clause.clauseKeyword != null">
+          and Clause.clauseKeyword like concat ('%',#{clause.clauseKeyword},'%')
+        </if>
+      </if>
+    </where>
+  </select>
+  <delete id="deleteClause" parameterType="cn.tcmp068.aviation.entity.Clause">
+        delete from Clause where clauseId=#{clauseId}
+    </delete>
+  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Clause" >
+     insert into Clause (clauseId, catelogId, lawsId,
+      clauseNumber, clauseName, clauseVersions,
+      clauseTitle, clauseText, clauseKeyword
+      )
+    values (#{clauseid,jdbcType=INTEGER}, #{cateLogid,jdbcType=INTEGER}, #{lawsid,jdbcType=INTEGER},
+      #{clausenumber,jdbcType=INTEGER}, #{clausename,jdbcType=VARCHAR}, #{clauseversions,jdbcType=INTEGER},
+      #{clausetitle,jdbcType=VARCHAR}, #{clausetext,jdbcType=VARCHAR}, #{clausekeyword,jdbcType=VARCHAR}
+      )
+  </insert>
 </mapper>

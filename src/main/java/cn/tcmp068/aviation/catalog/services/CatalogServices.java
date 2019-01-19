@@ -8,8 +8,9 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CatalogServices {
-    PageInfo<Catalog> queryAll(@Param("cataLaws") String cataLaws, int pageNumber, int pageSize);
     int addCatalog(Catalog catalog);
     int deleteCatalog(int catalogId);
+    PageInfo<Catalog> queryAllCatalog(String cataLaws,int pageNumber, int pageSize);
+    List<Catalog> queryByCateRank(int cateRank);//根据父级目录id获得其子目录
     PageInfo<Laws> queryAll(Laws laws, int pageNumber, int pageSize);//查所有
 }

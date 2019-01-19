@@ -46,18 +46,27 @@
 </div>
 <script src="../static/layui/layui.js"></script>
 <script>
-    //Demo
-    layui.use('form', function(){
+    var a="${leave.pageNum}";
+    var b="${leave.pageSize}";
+    var c="${leave.getTotal()}"
+    layui.use('form',function () {
         var form = layui.form;
-
-    });
+    })
     layui.use(['laypage','layer'],function () {
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: 100
+            ,count: c
+            ,curr:  a //获取起始页
+            ,hash: 'fenye'
+            ,limit: b
+            ,limits: [10, 20, 30 ,50 ,100]
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            ,jump: function(obj){
+            ,jump: function(obj,first){
+                if(!first){
+
+                    window.location.href="listLeaveController?pageNumber="+obj.curr+"&pageSize="+obj.limit;
+                }
             }
         });
     })

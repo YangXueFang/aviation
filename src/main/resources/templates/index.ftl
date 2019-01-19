@@ -62,10 +62,10 @@
                             <a href="cataLogAddController" target="myFrame">新增目录</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="条款列表.html" target="myFrame">条款列表</a>
+                            <a href="queryAllClauseController" target="myFrame">条款列表</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="新增条款.html" target="myFrame">新增条款</a>
+                            <a href="toAdd" target="myFrame">新增条款</a>
                         </dd>
                     </dl>
                 </li>
