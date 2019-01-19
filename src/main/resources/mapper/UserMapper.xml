@@ -12,7 +12,16 @@
         </where>
     </select>
 
-    <select id="login">
+    <select id="login" resultType="cn.tcmp068.aviation.entity.User">
         select * from User where userPhone=#{userPhone} and userPassword=#{userPassword}
+    </select>
+    <insert id="insertUser" parameterType="cn.tcmp068.aviation.entity.User">
+        insert into User values (null,#{userPhone},md5(#{userPassword}),#{userType},now(),#{userStatus})
+    </insert>
+    <update id="updateUser" parameterType="cn.tcmp068.aviation.entity.User">
+        update User  set userPassword where userPhone=#{userPhone}
+    </update>
+    <select id="queryUserByPhone" resultType="cn.tcmp068.aviation.entity.User">
+        select * from User where userPhone=#{userPhone}
     </select>
 </mapper>

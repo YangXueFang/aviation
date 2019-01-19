@@ -20,30 +20,32 @@
         <div class="title">新增法规</div>
     </header>
     <footer>
+
         <div>
+            <form action="doAddLawsController" method="post">
             <table class="biaodan" cellspacing="10px">
                 <tr>
                     <td style="width: 300px;">*法规部号:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsPart"></td>
                 </tr>
                 <tr>
                     <td>法规号别名:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsId"></td>
                 </tr>
                 <tr>
                     <td>法规版本号:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsVersion"></td>
                 </tr>
                 <tr>
                     <td>*法规名称:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsName"></td>
                 </tr>
                 <tr>
                     <td>*是否显示:</td>
                     <td class="layui-form">
                         <div class="layui-input-block" style="margin-left: 0px">
-                            <input type="radio" name="" value="0" title="显示" checked>
-                            <input type="radio" name="" value="1" title="不显示">
+                            <input type="radio" name="lawsStauts" value="0" title="显示" checked>
+                            <input type="radio" name="lawsStauts" value="1" title="不显示">
                         </div>
                     </td>
                 </tr>
@@ -65,23 +67,27 @@
                 </tr>
                 <tr>
                     <td>法定PDF文件名称:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsFDBName"></td>
                 </tr>
                 <tr>
                     <td>法规PDF文件下载链接:</td>
-                    <td><input class="layui-input x-input" type="text"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsDownload"></td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: top;">*法规版本说明:</td>
-                    <td>
-                        <div id="froala-editor" style="width: 500px;">
-                        </div>
+                <td style="vertical-align: top;">*法规版本说明:</td>
+                <td>
+                    <div id="froala-editor" style="width: 500px;" name="lawsState">
 
-                        <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;">保存</button>
-                    </td>
-                </tr>
-            </table>
+                </div>
+
+                    <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;" type="submit">保存</button>
+                </td>
+            </tr>
+                </table>
+            </form>
         </div>
+
+
     </footer>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -98,6 +104,7 @@
             toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'undo', 'redo'],
             height:300,
             placeholderText: '请输入内容',
+
 
         })
     });

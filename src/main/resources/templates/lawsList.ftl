@@ -30,7 +30,7 @@
     <footer>
         <div>
             <div class="layui-input-block">
-                <button class="layui-btn layui-btn-normal" style="float: right;">新增法规</button>
+                <button class="layui-btn layui-btn-normal" style="float: right;" onclick="location.href='toAddLawsController'">新增法规</button>
             </div>
             <table class="layui-table" style="word-break:break-all; word-wrap: break-word">
                 <thead>
@@ -58,68 +58,34 @@
                 </tr>
                 </#list>
                 </tbody>
-            </table>
+            </table>4
             <div id="page" class="fenye"></div>
-            <div class="row" >
-                <div class="col-sm-5">
-                    <div class="dataTables_info" id="page_info" role="status" aria-live="polite" style="margin-top: 20px;margin-left: 10px">
-                    <#--当前 1/10，共10页-->
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate" style="text-align: right;margin-right: 10px">
-                    <#-- jqPaginator分页 -->
-                        <ul class="pagination" id="pagination1"></ul>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </footer>
 </div>
 <script src="../static/layui/layui.js"></script>
-<#-- jqPaginator分页 begin -->
-<script type="text/javascript" src="/jqPaginator/js/jqPaginator.js"></script>
-<#-- jqPaginator分页 end -->
 <script>
     layui.use(['laypage','layer'],function () {
         var laypage = layui.laypage;
+        var total=${laws.total};
+
         laypage.render({
             elem: 'page'
-            ,count: 100
+            ,count: total
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj){
+                if (obj.curr==1){
+                }else{
+                    // JSON.stringify(obj);
+                    window.location="queryAllLawsController?PageNumber="+obj.curr;
+                }
+
+
+
+
             }
         });
     })
-
-</script>
-<script type="text/javascript">
-    $("#addCustomer").click(function () {
-        window.location.href("toAddCustomer.controller");
-    })
-    // 设置分页信息
-    var PageNumber = #{UserCustomer.pageNo};
-    var pages =#{UserCustomer.pages};
-    var total = #{UserCustomer.total};
-
-    $('#page_info').html("当前 {0}/{1}页，共{2}条".format(PageNumber, pages, total));
-
-
-    $('#pagination1').jqPaginator({
-        totalPages: pages,
-        visiblePages: 10,
-        currentPage: PageNumber,
-        onPageChange: function (num, type) {
-            if (PageNumber != num) {
-//                var projectState = $("#searchProjectState").val();
-//                var searchKey = $("#searchKey").val();
-                var url = "/page/admin/customerList?pageNo={0}".format(num);
-                window.location.href = url;
-            } else {
-            }
-        }
-    });
 </script>
 </body>
 </html>
