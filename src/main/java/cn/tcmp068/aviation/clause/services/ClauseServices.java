@@ -6,7 +6,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 public interface ClauseServices {
-    int insert(Clause record);
+    int addClause(Clause clause);
     PageInfo<Clause> queryAllClause(Clause clause,int pageNumber,int pageSize);
     int deleteClause(int clauseId);
 }

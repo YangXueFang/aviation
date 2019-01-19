@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Clause {
-    private Integer catelogId;
+
     private int clauseId;
     private Catalog catalog;
     private Laws lawsId;

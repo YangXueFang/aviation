@@ -8,7 +8,7 @@ import java.util.List;
 public interface ClauseMapper {
 
 
-    int insert(Clause record);
+    int addClause(Clause clause);
     List<Clause> queryAllClause(@Param("clause") Clause clause);
     int deleteClause(int clauseId);
 
