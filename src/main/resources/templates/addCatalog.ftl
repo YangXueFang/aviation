@@ -5,15 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="../static/layui/css/layui.css">
     <link rel="stylesheet" href="../static/css/Xq.css">
-    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
 
-            $("#ajaxLaws").change(function () {
-                console.log($("#ajaxLaws"))
-            })
-
-    </script>
 </head>
 <body>
 <div class="overall">

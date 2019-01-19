@@ -18,11 +18,10 @@ public class ClauseServicesImpl implements ClauseServices {
     @Resource
     private ClauseMapper clauseMapper;
 
-    @Override
-    public int insert(Clause record) {
 
-       int i= clauseMapper.insert(record);
-        return i;
+    @Override
+    public int addClause(Clause clause) {
+        return this.clauseMapper.addClause(clause);
     }
 
     @Override

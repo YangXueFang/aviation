@@ -30,15 +30,8 @@
   </select>
   <delete id="deleteClause" parameterType="cn.tcmp068.aviation.entity.Clause">
         delete from Clause where clauseId=#{clauseId}
-    </delete>
-  <insert id="insert" parameterType="cn.tcmp068.aviation.entity.Clause" >
-     insert into Clause (clauseId, catelogId, lawsId,
-      clauseNumber, clauseName, clauseVersions,
-      clauseTitle, clauseText, clauseKeyword
-      )
-    values (#{clauseid,jdbcType=INTEGER}, #{cateLogid,jdbcType=INTEGER}, #{lawsid,jdbcType=INTEGER},
-      #{clausenumber,jdbcType=INTEGER}, #{clausename,jdbcType=VARCHAR}, #{clauseversions,jdbcType=INTEGER},
-      #{clausetitle,jdbcType=VARCHAR}, #{clausetext,jdbcType=VARCHAR}, #{clausekeyword,jdbcType=VARCHAR}
-      )
+   </delete>
+  <insert id="addClause" parameterType="cn.tcmp068.aviation.entity.Clause" >
+     insert into Clause values (#{clauseId}, #{catalog.catelogId}, #{lawsId.lawsId},#{clauseNumber}, #{clauseName}, #{clauseVersions}, #{clauseTitle}, #{clauseText}, #{clauseKeyword})
   </insert>
 </mapper>
