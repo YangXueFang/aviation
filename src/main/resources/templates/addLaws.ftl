@@ -60,7 +60,7 @@
                         <div style="position: absolute;left:300px;bottom: 0;">
                             <p>图片格式支持：jpg/png，</p>
 
-                            <p>图片尺寸：90*90px</p>
+                            <p>图片尺寸：90*90px</p>\
 
                             <p>图片大小：不超过50K</p>
                         </div>
