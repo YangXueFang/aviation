@@ -73,6 +73,7 @@
             elem: 'page'
             ,count: total
             ,curr:${laws.pageNum}
+            ,limit:${laws.pageSize}
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj,first){
                 if (!first){
