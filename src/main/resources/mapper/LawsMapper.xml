@@ -19,4 +19,13 @@
     <insert id="addLaws" parameterType="cn.tcmp068.aviation.entity.Laws">
         INSERT INTO Laws VALUES (#{lawsId},#{lawsPart},#{lawsVersion},#{lawsName},#{lawsStauts},#{lawsDownload},#{lawsState},#{lawsLogo},#{lawsFDBName})
     </insert>
+    <update id="updateLaws" parameterType="cn.tcmp068.aviation.entity.Laws">
+       UPDATE Laws SET lawsPart=#{lawsPart},lawsVersion=#{lawsVersion},lawsName=#{lawsName},lawsStauts=#{lawsStauts},lawsDownload=#{lawsDownload},lawsState=#{lawsState},lawsLogo=#{lawsLogo},lawsFDBName=#{lawsFDBName} WHERE lawsId=#{lawsId}
+    </update>
+    <select id="queryLawsById" parameterType="java.lang.String" resultType="cn.tcmp068.aviation.entity.Laws">
+        select * from Laws where lawsId=#{lawsId}
+    </select>
+    <delete id="deleteLawsById" parameterType="java.lang.String">
+        delete from Laws where lawsId=#{lawsId}
+    </delete>
 </mapper>

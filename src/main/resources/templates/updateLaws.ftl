@@ -16,39 +16,47 @@
 <body>
 <div class="overall">
     <header>
-        <div class="daohang">法规管理 / 新增法规</div>
-        <div class="title">新增法规</div>
+        <div class="daohang">法规管理 / 修改法规</div>
+        <div class="title">修改法规</div>
     </header>
     <footer>
 
         <div>
-            <form action="doAddLawsController" method="post">
+            <form action="doUpdateLawsController" method="post">
             <table class="biaodan" cellspacing="10px">
                 <tr>
                     <td style="width: 300px;">*法规部号:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsPart"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsPart" value="${Laws.lawsPart}"></td>
                 </tr>
                 <tr>
                     <td>法规号别名:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsId"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsId" value="${Laws.lawsId}"></td>
                 </tr>
                 <tr>
                     <td>法规版本号:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsVersion"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsVersion" value="${Laws.lawsVersion}"></td>
                 </tr>
                 <tr>
                     <td>*法规名称:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsName"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsName" value="${Laws.lawsName}"></td>
                 </tr>
                 <tr>
                     <td>*是否显示:</td>
                     <td class="layui-form">
                         <div class="layui-input-block" style="margin-left: 0px">
-                            <input type="radio" name="lawsStauts" value="0" title="显示">
-                            <input type="radio" name="lawsStauts" value="1" title="不显示">
+                        <#if Laws.lawsStauts==1>
+                            <input type="radio" name="lawsStauts" value="1" title="显示" checked>
+                        <input type="radio" name="lawsStauts" value="0" title="不显示">
+                        </#if>
+                        <#if Laws.lawsStauts==0>
+                        <input type="radio" name="lawsStauts" value="1" title="显示" >
+                            <input type="radio" name="lawsStauts" value="0" title="不显示" checked>
+                        </#if>
+
                         </div>
                     </td>
                 </tr>
+
                 <tr>
                     <td>*首页法规图标:</td>
                     <td style="position: relative;width: 400px;">
@@ -57,8 +65,9 @@
                             <p>点击上传，或将文件拖拽到此处</p>
                         </div>
 
-                        <#--这里要换成file-->
-                        <input type="text" name="lawsLogo"/>
+
+                    <#--这里要换成file-->
+                        <input type="text" name="lawsLogo" value="${Laws.lawsLogo}"/>
 
 
                         <div style="position: absolute;left:300px;bottom: 0;">
@@ -72,17 +81,20 @@
                 </tr>
                 <tr>
                     <td>法定PDF文件名称:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsFDBName"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsFDBName" value="${Laws.lawsFDBName}"></td>
                 </tr>
                 <tr>
                     <td>法规PDF文件下载链接:</td>
-                    <td><input class="layui-input x-input" type="text" name="lawsDownload"></td>
+                    <td><input class="layui-input x-input" type="text" name="lawsDownload" value="${Laws.lawsDownload}"></td>
                 </tr>
                 <tr>
                 <td style="vertical-align: top;">*法规版本说明:</td>
                 <td>
                     <#--<div id="froala-editor" style="width: 500px;">-->
-                        <textarea id="froala-editor" name="lawsState" hidden></textarea>
+                        <textarea id="froala-editor" name="lawsState">
+                        ${Laws.lawsState}
+
+                        </textarea>
                 <#--</div>-->
 
 

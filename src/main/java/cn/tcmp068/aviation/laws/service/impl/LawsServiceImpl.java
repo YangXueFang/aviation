@@ -28,4 +28,19 @@ public class LawsServiceImpl implements LawsService {
     public int addLaws(Laws laws) {
         return this.lawsMapper.addLaws(laws);
     }
+
+    @Override
+    public int updateLaws(Laws laws) {
+        return this.lawsMapper.updateLaws(laws);
+    }
+
+    @Override
+    public Laws queryLawsById(String lawsId) {
+        return this.lawsMapper.queryLawsById(lawsId);
+    }
+
+    @Override
+    public int deleteLawsById(String lawsId) {
+        return this.lawsMapper.deleteLawsById(lawsId);
+    }
 }

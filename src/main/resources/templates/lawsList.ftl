@@ -52,8 +52,8 @@
                     <td>${laws.lawsName}</td>
                     <td>${laws.lawsStauts}</td>
                     <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
+                        <a href="toUpdateLawsController?lawsId=${laws.lawsId}" class="caozuo">编辑</a>
+                        <a href="deleteLawsController?lawsId=${laws.lawsId}" onclick="return confirm('确认删除该条法规吗?');" class="caozuo">删除</a>
                     </td>
                 </tr>
                 </#list>
