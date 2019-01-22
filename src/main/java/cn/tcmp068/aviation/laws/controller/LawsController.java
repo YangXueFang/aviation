@@ -17,7 +17,6 @@ public class LawsController {
     @RequestMapping("queryAllLawsController")
     public String queryAllLaws(Model model, Laws laws, @RequestParam(defaultValue = "1",required = false)int PageNumber, @RequestParam(defaultValue = "10",required = false)int PageSize){
         model.addAttribute("laws",this.lawsService.queryAll(laws,PageNumber,PageSize));
-
         return "lawsList";
     }
     @RequestMapping("toAddLawsController")
