@@ -59,7 +59,7 @@
                 </#list>
                 </tbody>
             </table>
-            <div id="page" class="fenye"></div>
+            <div id="page" class="fenye ·"></div>
         </div>
     </footer>
 </div>
