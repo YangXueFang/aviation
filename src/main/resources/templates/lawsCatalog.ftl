@@ -18,11 +18,9 @@
             <div class="layui-form" style="position: relative;margin: 50px 0px 30px 0px;">
                 <label class="layui-form-label">选择法规：</label>
                 <form method="post" action="/cataLogListController">
-                    <input type="text" name="pageSize" value="${catalog.pageRecorders}" id="b">
-                    <input type="text" name="pageNumber" value="${catalog.page}" id="a">
                 <div class="layui-input-inline">
                     <select name="cataLaws">
-
+                        <option value="">请选择</option>
                         <#list llist.list as laws>
                         <option value="${laws.lawsId}">${laws.lawsId}</option>
                         </#list>
@@ -60,13 +58,9 @@
 </div>
 <script src="../static/layui/layui.js"></script>
 <script>
-    var a="${catalog.getTotalRows()}";
-    var b="${catalog.getPage()}";
-    var c="${catalog.getPageRecorders()}";
-    alert(a)
-    alert(b)
-    alert(c)
-
+    var a="${catalog.getTotal()}";
+    var b="${catalog.getPageNum()}";
+    var c="${catalog.getPageSize()}";
     layui.use('form',function () {
         var form = layui.form;
     })
@@ -88,21 +82,10 @@
             ,hash: 'fenye'
             ,limit: c
             ,limits: [10, 20, 30 ,50 ,100]
-            <#--,next:${catalog.isHasNextPage()}-->
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj,first){
-                //console.log(000)
-                // $("#a").val(obj.curr);
-                // $("#b").val(obj.limit)
-                //alert(first)
                if(!first){
                    window.location.href="cataLogListController?pageNumber="+obj.curr+"&pageSize="+obj.limit;
-
-                    //console.log(obj)
-                    //console.log(obj.curr);
-                   // console.log(obj.limit);
-                    //$("form").submit();
-
                 }
             }
         });

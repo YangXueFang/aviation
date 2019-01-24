@@ -3,7 +3,6 @@ package cn.tcmp068.aviation.catalog.controller;
 import cn.tcmp068.aviation.catalog.services.CatalogServices;
 import cn.tcmp068.aviation.entity.Catalog;
 import cn.tcmp068.aviation.entity.Laws;
-import cn.tcmp068.aviation.tools.PageUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import net.sf.json.JSONArray;
@@ -42,13 +41,9 @@ public class CatalogController {
         return "redirect:/cataLogListController";
     }
     @RequestMapping("cataLogListController")
-    public String queryAllCataLog(Model model,Laws laws,@RequestParam(defaultValue = "0")String cataLaws,@RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize){
-        List<Catalog> alist=null;
-        if(cataLaws.equals("0")) {
-            alist = catalogServices.queryAllCatalog(catalogServices.queryOneCataLaws().getCataLaws(), pageNumber, pageSize).getList();
-        }else{
-            alist = catalogServices.queryAllCatalog(cataLaws, pageNumber, pageSize).getList();
-        }
+    public String queryAllCataLog(Model model,Laws laws,String cataLaws,@RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize){
+        PageHelper.startPage(pageNumber,pageSize);
+        List<Catalog> alist= catalogServices.queryAllCatalog(cataLaws, pageNumber, pageSize).getList();
         List<Catalog> list=new ArrayList<>();
         for(int a=0;a<alist.size();a++){
             list.add(alist.get(a));
@@ -63,17 +58,9 @@ public class CatalogController {
             }
             blist.clear();
         }
-        PageHelper.startPage(pageNumber,pageSize);
         PageInfo<Catalog> pageInfo=new PageInfo<>(list);
-        PageUtil<Catalog> pageUtil = new PageUtil<Catalog>(list, 10,pageNumber);
-        List<Catalog> sublist = pageUtil.getObjects(pageNumber);
-          for(int i = 0; i < sublist.size(); i++) {
-           System.out.println("=============="+sublist.get(i));
-        }
-        model.addAttribute("catalog",pageUtil);
-        System.out.println("==================="+pageUtil.getPage());
-        System.out.println("==================="+this.catalogServices.queryAll(laws,pageNumber,pageSize));
-       model.addAttribute("llist",this.catalogServices.queryAll(laws,pageNumber,pageSize));
+        model.addAttribute("catalog",pageInfo);
+        model.addAttribute("llist",this.catalogServices.queryAll(laws,pageNumber,pageSize));
         return "lawsCatalog";
     }
         @RequestMapping("listController")
@@ -127,9 +114,7 @@ public class CatalogController {
         public String toUpdate(Model model,int catalogId,String cataLaws,Laws laws,@RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize){
             Catalog catalog=this.catalogServices.queryBycatalogId(catalogId);
             model.addAttribute("catalog",catalog);
-
             model.addAttribute("llist",this.catalogServices.queryAll(laws,pageNumber,pageSize));
-
             String cl=catalog.getCataLaws();
             System.out.println(cl);
             List<Catalog> alist = this.catalogServices.queryAllCatalog(cl, pageNumber, pageSize).getList();

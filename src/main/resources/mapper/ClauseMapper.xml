@@ -34,4 +34,37 @@
   <insert id="addClause" parameterType="cn.tcmp068.aviation.entity.Clause" >
      insert into Clause values (#{clauseId}, #{catalog.catalogId}, #{lawsId.lawsId},#{clauseNumber}, #{clauseName}, #{clauseVersions}, #{clauseTitle}, #{clauseText}, #{clauseKeyword})
   </insert>
+  <select id="detailClause" parameterType="int" resultMap="ClauseMap">
+    select * from Clause,Catalog where Clause.cateLogid=Catalog.catalogId and clauseId=#{clauseId}
+  </select>
+  <update id="updateClause" parameterType="cn.tcmp068.aviation.entity.Clause">
+    update Clause
+    <set>
+      <if test="clause!=null">
+        <if test="clause.catalogId!=null">
+          catalogId=#{clause.catalogId}
+        </if>
+        <if test="clause.lawsId!=null">
+          lawsId=#{clause.lawsId}
+        </if>
+        <if test="clause.clauseNumber!=null">
+          clauseNumber=#{clause.clauseNumber}
+        </if>
+        <if test="clause.clauseName!=null">
+          clauseName=#{clause.clauseName}
+        </if>
+        <if test="clause.clauseVersions!=null">
+          clauseVersions=#{clause.clauseVersions}
+        </if>
+        <if test="clause.clauseTitle!=null">
+          clauseTitle=#{clause.clauseTitle}
+        </if>
+        <if test="clause.clauseKeyword!=null">
+          clauseKeyword=#{clause.clauseKeyword}
+        </if>
+      </if>
+    </set>
+    where clauseId=#{clause.clauseId}
+  </update>
+
 </mapper>

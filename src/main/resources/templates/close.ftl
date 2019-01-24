@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../static/css/login2.css">
     <style>
         html,body {
-            background-color: #efeff4;
+            background-color: #fff;
 
         }
         .title{
@@ -48,24 +48,15 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <h1 id="title" class="mui-title">历史查询</h1>
+    <h1 id="title" class="mui-title">提示</h1>
     <a class="mui-icon mui-icon-more mui-pull-right"></a>
 </header>
-<div class="mui-content">
-    <#list consult as userConsult>
-    <div class="x-lishi">
-        <div>
-            <img style="width: 16.5px;height: 15.5px;" src="../static/images/date.png" alt="">
-            <span class="x-riqi">${userConsult.consultTime}</span>
-        </div>
-        <div>
-            <span class="x-content" style="font-size: 15px;color: #333333;">
-                ${userConsult.consultText}
-            </span>
-            <a class="gengduo" href="javascript:void(0)" onclick="tan()">更多</a>
-        </div>
+<div class="mui-content" style="text-align: center;background-color: #fff;">
+    <img style="width: 212px;height: 153px;margin-top: 13.8%" src="../static/images/close.png" alt="">
+    <div style="margin-top: 8.4%;font-size: 16px;color: #276CB3;text-align: center;">
+        <span>网站现处于关闭状态</span><br/>
+        <span>暂无法访问</span>
     </div>
-    </#list>
 </div>
 
 
@@ -75,44 +66,12 @@
 
 <script src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
-<script src="../static/js/mui.min.js"></script>
-<script src="../static/layui/layui.js"></script>
 <script>
-
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
+</script>
 
-</script>
-<script>
-    $(function () {
-        $(".x-content").each(function() {
-            var words = $(this).text().length;
-            if(words > 59){
-                $(this).text($(this).text().slice(0,59)+"...");
-            }
-        });
-    });
-</script>
-<script>
-    layui.use('layer',function () {
-        layer=layui.layer;
-    })
-    function tan() {
-        layer.open({
-            type: 1
-            ,skin:'tan-yangshi'
-            ,title:'咨询问题<span style="color: #007aff;padding-left: 5px;">(2018-12-24)</span>'
-            ,area: ['100%', '525px']
-            ,offset: 'b' //具体配置参考：offset参数项,
-            ,content: '咨询问题详情'
-            ,btnAlign: 'b' //按钮居中
-            ,shade: 0.5 //不显示遮罩
-        });
-    }
-</script>
 
 </body>
 </html>
-
-

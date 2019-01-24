@@ -11,5 +11,6 @@ public interface ClauseMapper {
     int addClause(Clause clause);
     List<Clause> queryAllClause(@Param("clause") Clause clause);
     int deleteClause(int clauseId);
-
+    Clause detailClause(int clauseId);
+    int updateClause(@Param("clause") Clause clause);
 }

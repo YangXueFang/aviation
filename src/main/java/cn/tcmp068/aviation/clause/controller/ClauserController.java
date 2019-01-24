@@ -31,7 +31,6 @@ public class ClauserController {
     @RequestMapping("doAdd")
     public String doAdd(Model model,Clause clause){
         model.addAttribute("clause",clauseServices.addClause(clause));
-
         return "clause";
     }
 
@@ -79,7 +78,15 @@ public class ClauserController {
         model.addAttribute("clause",this.clauseServices.deleteClause(clauseId));
         return null;
     }
+    @RequestMapping("toUpdateClause")
+    public String toUpdate(Model model,int clauseId){
+        model.addAttribute("clause",this.clauseServices.detailClause(clauseId));
+        return "updateClause";
+    }
 
-
+    public String doUpdate(Model model,Clause clause){
+        model.addAttribute("clause",this.clauseServices.updateClause(clause));
+        return null;
+    }
 
 }

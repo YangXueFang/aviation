@@ -63,7 +63,7 @@
                     <B></B> <td>${clause.clauseText}</td>
                     <td>${clause.clauseVersions}</td>
                     <td>
-                        <a href="" class="caozuo">编辑</a>
+                        <a href="toUpdateClause?clauseId=${clause.clauseId}" class="caozuo">编辑</a>
                         <a href="" class="caozuo">删除</a>
                     </td>
                 </tr>

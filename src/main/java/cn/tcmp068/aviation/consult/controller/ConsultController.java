@@ -39,13 +39,13 @@ public class ConsultController {
     }
 
     @RequestMapping("userListConsult")
-    public String queryUserAll(Model model,int userId){
+    public String queryUserAll(Model model,@RequestParam(defaultValue = "1",required = false)int userId){
         model.addAttribute("consult",this.consultServices.queryAllByuserId(1));
         return "userConsult";
     }
     @RequestMapping("toAddConsultController")
     public String toAdd(){
-        return null;
+        return "addConsult";
     }
     @RequestMapping("doAddConsultController")
     public String doAdd(Model model,Consult consult){

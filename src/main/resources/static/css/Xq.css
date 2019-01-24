@@ -162,6 +162,10 @@ footer>div {
 .x-content-div div{
     display: inline-block;
 }
+.x-content-div a {
+    text-decoration: none;
+    color: #000;
+}
 .x-content-div div:nth-child(2) {
     padding-left: 10px;
 }

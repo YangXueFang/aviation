@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" href="../static/css/mui.min.css">
     <style>
         html,body {
             background-color: #efeff4;
@@ -50,7 +50,7 @@
 </head>
 <body>
 <div class="mui-content">
-    <div style="height: 95px;background:url(./images/service_banner.jpg) no-repeat;-webkit-background-size: 100% 135px;background-size: 100% 135px;">
+    <div style="height: 95px;background:url(../static/images/service_banner.jpg) no-repeat;-webkit-background-size: 100% 135px;background-size: 100% 135px;">
         <div style="text-align: center;font-size: 16px;color: white;padding-top: 20px;">
             <span>请留意您的联系方式和咨询问题</span><br>
             <span>我们会安排专业顾问跟您联系</span>
@@ -82,7 +82,7 @@
         </div>
     </div>
 </div>
-<script src="./js/mui.min.js"></script>
+<script src="../static/js/mui.min.js"></script>
 <script>
     mui.init({
         swipeBack: false,

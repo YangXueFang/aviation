@@ -37,4 +37,14 @@ public class ClauseServicesImpl implements ClauseServices {
     public int deleteClause(int clauseId) {
         return this.clauseMapper.deleteClause(clauseId);
     }
+
+    @Override
+    public Clause detailClause(int clauseId) {
+        return this.clauseMapper.detailClause(clauseId);
+    }
+
+    @Override
+    public int updateClause(Clause clause) {
+        return this.clauseMapper.updateClause(clause);
+    }
 }

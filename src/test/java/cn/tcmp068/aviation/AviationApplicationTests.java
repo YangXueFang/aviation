@@ -1,6 +1,7 @@
 package cn.tcmp068.aviation;
 
 
+import cn.tcmp068.aviation.consult.dao.ConsultMapper;
 import cn.tcmp068.aviation.entity.User;
 
 import cn.tcmp068.aviation.user.dao.UserMapper;
@@ -15,7 +16,6 @@ import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Ignore
 public class AviationApplicationTests {
 
 
@@ -75,8 +75,14 @@ public class AviationApplicationTests {
 ////        clauseServices.insert(clause);
 ////    @Resource
 ////    private AdminMapper adminMapper;
-////    @Resource
-////    private ConsultMapper consultMapper;
+    @Resource
+   private ConsultMapper consultMapper;
+
+    @Test
+    public void list(){
+        System.out.println(this.consultMapper.queryAllByuserId(1));
+    }
+
 ////    @Resource
 ////    private LeaveMapper leaveMapper;
 ////    @Resource

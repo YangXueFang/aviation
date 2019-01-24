@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../static/css/login2.css">
     <style>
         html,body {
-            background-color: #efeff4;
+            background-color: #fff;
 
         }
         .title{
@@ -48,24 +48,35 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <h1 id="title" class="mui-title">历史查询</h1>
+    <h1 id="title" class="mui-title">收藏</h1>
     <a class="mui-icon mui-icon-more mui-pull-right"></a>
 </header>
 <div class="mui-content">
-    <#list consult as userConsult>
-    <div class="x-lishi">
-        <div>
-            <img style="width: 16.5px;height: 15.5px;" src="../static/images/date.png" alt="">
-            <span class="x-riqi">${userConsult.consultTime}</span>
-        </div>
-        <div>
-            <span class="x-content" style="font-size: 15px;color: #333333;">
-                ${userConsult.consultText}
-            </span>
-            <a class="gengduo" href="javascript:void(0)" onclick="tan()">更多</a>
-        </div>
+    <div style="position:relative;width: 100%;height: 100%;">
+            <!--法规目录-->
+            <div class="bufen">
+                <div style="color: #333333;font-size: 14px;">我收藏的部分</div>
+            </div>
+            <div class="x-content">
+                <ul>
+                    <li class="x-content-div">
+                        <div><strong>第25.1条</strong></div>
+                        <div>适用范围</div>
+                        <div><span class="mui-icon mui-icon-arrowright"></span></div>
+                    </li>
+                    <li class="x-content-div">
+                        <div><strong>第25.2条</strong></div>
+                        <div>【备用】</div>
+                        <div><span class="mui-icon mui-icon-arrowright"></span></div>
+                    </li>
+                    <li class="x-content-div">
+                        <div><strong>第25.3条</strong></div>
+                        <div>【备用】</div>
+                        <div><span class="mui-icon mui-icon-arrowright"></span></div>
+                    </li>
+                </ul>
+            </div>
     </div>
-    </#list>
 </div>
 
 
@@ -76,43 +87,12 @@
 <script src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script src="../static/js/mui.min.js"></script>
-<script src="../static/layui/layui.js"></script>
 <script>
-
     mui.init({
         swipeBack:true //启用右滑关闭功能
     });
+</script>
 
-</script>
-<script>
-    $(function () {
-        $(".x-content").each(function() {
-            var words = $(this).text().length;
-            if(words > 59){
-                $(this).text($(this).text().slice(0,59)+"...");
-            }
-        });
-    });
-</script>
-<script>
-    layui.use('layer',function () {
-        layer=layui.layer;
-    })
-    function tan() {
-        layer.open({
-            type: 1
-            ,skin:'tan-yangshi'
-            ,title:'咨询问题<span style="color: #007aff;padding-left: 5px;">(2018-12-24)</span>'
-            ,area: ['100%', '525px']
-            ,offset: 'b' //具体配置参考：offset参数项,
-            ,content: '咨询问题详情'
-            ,btnAlign: 'b' //按钮居中
-            ,shade: 0.5 //不显示遮罩
-        });
-    }
-</script>
 
 </body>
 </html>
-
-

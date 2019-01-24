@@ -98,13 +98,13 @@
                     </a>
                     <dl class="layui-nav-child">
                         <dd data-name="console">
-                            <a href="网站设置.html" target="myFrame">网站设置</a>
+                            <a href="web" target="myFrame">网站设置</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="邮件SMTP设置.html" target="myFrame">邮件SMTP设置</a>
+                            <a href="smpt" target="myFrame">邮件SMTP设置</a>
                         </dd>
                         <dd data-name="console">
-                            <a href="短信设置.html" target="myFrame">短信设置</a>
+                            <a href="message" target="myFrame">短信设置</a>
                         </dd>
                         <dd data-name="console">
                             <a href="listAdminController" target="myFrame">管理员管理</a>
@@ -113,6 +113,12 @@
                             <a href="listLeaveController" target="myFrame">意见反馈列表</a>
                         </dd>
                     </dl>
+                </li>
+                <li data-name="home" class="layui-nav-item">
+                    <a href="indexPhone" lay-tips="手机端" lay-direction="2">
+                        <i class="layui-icon layui-icon-set"></i>
+                        <cite>手机端</cite>
+                    </a>
                 </li>
             </ul>
         </div>

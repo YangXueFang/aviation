@@ -36,7 +36,7 @@
         </set>
         where catalogId=#{catalogId}
     </update>
-    <select id="queryOneCataLaws" resultType="cn.tcmp068.aviation.entity.Catalog">
-      SELECT * FROM Catalog LIMIT 1
-    </select>
+    <!--<select id="queryOneCataLaws" resultType="cn.tcmp068.aviation.entity.Catalog">-->
+      <!--SELECT * FROM Catalog LIMIT 1-->
+    <!--</select>-->
 </mapper>
