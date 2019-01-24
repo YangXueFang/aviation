@@ -28,4 +28,20 @@ public class LawsController {
         model.addAttribute("laws",this.lawsService.addLaws(laws));
         return "redirect:/queryAllLawsController";
     }
+
+    @RequestMapping("toUpdateLawsController")
+    public String toUpdate(Model model,String lawsId){
+        model.addAttribute("Laws",this.lawsService.queryLawsById(lawsId));
+        return "updateLaws";
+    }
+    @RequestMapping("doUpdateLawsController")
+    public String doUpdate(Model model,Laws laws){
+        model.addAttribute("Laws",this.lawsService.updateLaws(laws));
+        return "redirect:/queryAllLawsController";
+    }
+    @RequestMapping("deleteLawsController")
+    public String delete(String lawsId,Model model) {
+        model.addAttribute("Laws",this.lawsService.deleteLawsById(lawsId));
+        return "redirect:/queryAllLawsController";
+    }
 }
