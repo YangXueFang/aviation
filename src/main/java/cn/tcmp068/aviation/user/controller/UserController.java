@@ -30,6 +30,7 @@ public class UserController {
 
     @RequestMapping("listUserController")
     public String queryAll(Model model,@RequestParam(defaultValue = "1",required = false)String userPhone, @RequestParam(defaultValue = "1",required = false) int pageNumber, @RequestParam(defaultValue = "10",required = false) int pageSize){
+       System.out.println("===============>"+this.userServices.queryAll(userPhone,pageNumber,pageSize));
         model.addAttribute("user",this.userServices.queryAll(userPhone,pageNumber,pageSize));
         model.addAttribute("phone",userPhone);
         return "user";

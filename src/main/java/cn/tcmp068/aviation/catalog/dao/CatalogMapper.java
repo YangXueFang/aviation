@@ -11,4 +11,7 @@ public interface CatalogMapper {
     List<Catalog> queryByCateRank(int cateRank);//根据父级目录id获得其子目录
     int addCatalog(Catalog catalog);
     int deleteCatalog(int catalogId);
+    Catalog queryBycatalogId(int catalogId);
+    int updateCatalog(Catalog catalog);
+    Catalog queryOneCataLaws();//查询第一个
 }

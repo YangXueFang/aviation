@@ -39,11 +39,11 @@ public class LeaveController {
     }
     @RequestMapping("toAddLeaveController")
     public String toAdd(){
-        return null;
+        return "addLeave";
     }
     @RequestMapping("doAddLeaveController")
     public String doAdd(Model model,Leave leave){
         model.addAttribute("leave",this.leaveServices.addLeave(leave));
-        return null;
+        return "addLeave";
     }
 }

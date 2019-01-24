@@ -40,8 +40,8 @@ public class ConsultController {
 
     @RequestMapping("userListConsult")
     public String queryUserAll(Model model,int userId){
-        model.addAttribute("consult",this.consultServices.queryAllByuserId(userId));
-        return null;
+        model.addAttribute("consult",this.consultServices.queryAllByuserId(1));
+        return "userConsult";
     }
     @RequestMapping("toAddConsultController")
     public String toAdd(){
@@ -56,6 +56,6 @@ public class ConsultController {
     @RequestMapping("detailConsultController")
     public String detail(Model model,int consultId){
         model.addAttribute("consult",this.consultServices.queryConsultByuserId(consultId));
-        return null;
+        return "detailConsult";
     }
 }

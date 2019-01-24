@@ -73,7 +73,7 @@
     var a="${user.pageNum}";
     var b="${user.pageSize}";
     var c="${user.getTotal()}"
-    layui.use('form',function () {
+   layui.use('form',function () {
         var form = layui.form;
     })
     layui.use(['laypage','layer'],function () {

@@ -5,6 +5,7 @@
     <select id="queryAllCatalog" resultType="cn.tcmp068.aviation.entity.Catalog" >
         select * from Catalog where cataLaws=#{cataLaws} and cateRank=0
     </select>
+
     <select id="queryByCateRank" resultType="cn.tcmp068.aviation.entity.Catalog">
         select * from Catalog where cateRank=#{cateRank}
     </select>
@@ -12,6 +13,30 @@
         insert into Catalog values(null,#{cataLaws},#{cateText},2,#{cateRank},#{cateNumber})
     </insert>
     <delete id="deleteCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
-        delete from Catalog where cataLogId=#{cataLogId}
+        delete from Catalog where catalogId=#{catalogId}
     </delete>
+    <select id="queryBycatalogId" parameterType="cn.tcmp068.aviation.entity.Catalog" resultType="cn.tcmp068.aviation.entity.Catalog">
+        select * from Catalog where catalogId=#{catalogId}
+    </select>
+    <update id="updateCatalog" parameterType="cn.tcmp068.aviation.entity.Catalog">
+        update Catalog
+        <set>
+            <if test="Catalog.cataLaws!=null">
+                cataLaws=#{cataLaws}
+            </if>
+            <if test="Catalog.cateText!=null">
+                cateText=#{cateText}
+            </if>
+            <if test="Catalog.cateRank!=null">
+                cateRank=#{cateRank}
+            </if>
+            <if test="cateNumber!=null">
+                cateNumber=#{cateNumber}
+            </if>
+        </set>
+        where catalogId=#{catalogId}
+    </update>
+    <select id="queryOneCataLaws" resultType="cn.tcmp068.aviation.entity.Catalog">
+      SELECT * FROM Catalog LIMIT 1
+    </select>
 </mapper>

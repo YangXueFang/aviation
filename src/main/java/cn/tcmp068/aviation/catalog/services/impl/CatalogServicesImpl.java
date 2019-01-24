@@ -28,7 +28,7 @@ public class CatalogServicesImpl implements CatalogServices {
 
     @Override
     public int deleteCatalog(int catalogId) {
-        return this.deleteCatalog(catalogId);
+        return this.catalogMapper.deleteCatalog(catalogId);
     }
 
     @Override
@@ -51,5 +51,20 @@ public class CatalogServicesImpl implements CatalogServices {
         List<Laws> list=this.lawsMapper.queryAll(laws,pageNumber,5);
         PageInfo<Laws> pageInfo=new PageInfo<>(list);
         return pageInfo;
+    }
+
+    @Override
+    public Catalog queryBycatalogId(int catalogId) {
+        return this.catalogMapper.queryBycatalogId(catalogId);
+    }
+
+    @Override
+    public int updateCatalog(Catalog catalog) {
+        return this.catalogMapper.updateCatalog(catalog);
+    }
+
+    @Override
+    public Catalog queryOneCataLaws() {
+        return this.catalogMapper.queryOneCataLaws();
     }
 }

@@ -12,15 +12,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_style.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="static/layui/css/layui.css">
     <link rel="stylesheet" href="static/css/Xq.css">
-    <#--<script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>-->
-    <#--<script type="text/javascript">-->
-        <#--$(function(){-->
-
-            <#--$("#froala-editor").blur(function () {-->
-                <#--alert(tinyMCE.getInstanceById('#froala-editor').getBody().innerHTML)-->
-            <#--})-->
-
-    <#--</script>-->
+    <script type="text/javascript" src="../static/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#froala-editor').froalaEditor({
+                language: 'zh_cn',
+                dragInline: true,
+                toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'insertLink', 'undo', 'redo'],
+                height:300
+             })
+        });
+    </script>
 </head>
 <body>
 <div class="overall">
@@ -49,7 +51,7 @@
                     <td>*所在目录:</td>
                     <td class="layui-form">
                         <div class="layui-input-inline x-select">
-                            <select name="catelogId" id="mulu" lay-filter="mulu">
+                            <select name="catalog.catalogId" id="mulu" lay-filter="mulu">
                                 <option value="请选择">请选择</option>
                             </select>
                         </div>
@@ -74,8 +76,9 @@
                 <tr>
                     <td>*条款内容:</td>
                     <td>
-                        <div id="froala-editor" style="width: 500px;" name="clauseText" contentEditable="true" >
-                        </div>
+                        <#--<div id="froala-editor" style="width: 500px;" name="clauseText" contentEditable="true" >-->
+                        <#--</div>-->
+                        <textarea id="froala-editor" name="clauseText" ></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -84,7 +87,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
-                        <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;" type="submit">保存</button>
+                        <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;" type="submit" id="save">保存</button>
                         <button class="layui-btn layui-btn-primary x-btn" style="margin-top: 20px;">复制条款</button>
                     </td>
                 </tr>
@@ -101,15 +104,7 @@
 <script src="static/layui/layui.js"></script>
 
 <script>
-    $(function() {
-        $('div#froala-editor').froalaEditor({
-            language: 'zh_cn',
-            dragInline: true,
-            toolbarButtons: ['bold', 'italic', 'underline', 'insertImage', 'insertLink', 'undo', 'redo'],
-            height:300
 
-        })
-    });
     layui.use('form',function () {
         var form = layui.form;
         form.on('select(tests)',function(data){
