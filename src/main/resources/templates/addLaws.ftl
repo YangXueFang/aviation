@@ -56,19 +56,33 @@
                             <i class="layui-icon"></i>
                             <p>点击上传，或将文件拖拽到此处</p>
                         </div>
-
-                        <#--这里要换成file-->
-                        <input type="text" name="lawsLogo"/>
-
-
                         <div style="position: absolute;left:300px;bottom: 0;">
                             <p>图片格式支持：jpg/png，</p>
 
-                            <p>图片尺寸：90*90px</p>\
+                            <p>图片尺寸：90*90px</p>
 
                             <p>图片大小：不超过50K</p>
                         </div>
+                        <input type="hidden" value="" name="lawsLogo" id="file_base64">
                     </td>
+                    <#--<td style="position: relative;width: 400px;">-->
+                        <#--<div class="layui-upload-drag" id="shangchuan">-->
+                            <#--<i class="layui-icon"></i>-->
+                            <#--<p>点击上传，或将文件拖拽到此处</p>-->
+                        <#--</div>-->
+
+                        <#--&lt;#&ndash;这里要换成file&ndash;&gt;-->
+                        <#--<input type="text" name="lawsLogo"/>-->
+
+
+                        <#--<div style="position: absolute;left:300px;bottom: 0;">-->
+                            <#--<p>图片格式支持：jpg/png，</p>-->
+
+                            <#--<p>图片尺寸：90*90px</p>\-->
+
+                            <#--<p>图片大小：不超过50K</p>-->
+                        <#--</div>-->
+                    <#--</td>-->
                 </tr>
                 <tr>
                     <td>法定PDF文件名称:</td>
@@ -129,7 +143,31 @@
                 console.log(res)
             }
         });
-    })
+    });
+
+
+    $(function () {
+        layui.use('upload',function () {
+            var $ = layui.jquery
+                    ,upload = layui.upload;
+            upload.render({
+                elem: '#shangchuan'
+                , url: '/'
+                , auto: false //选择文件后不自动上传
+                , bindAction: '#testListAction'
+                , done: function (res) {
+                    console.log(res); //得到文件base64编码，比如图片
+                }
+                , choose: function (obj) {
+                    //预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
+                    obj.preview(function (index, file, result) {
+                        $('#file_base64').val(result);
+                    });
+                }
+            });
+        })
+    });
+
 </script>
 
 </body>
