@@ -63,6 +63,10 @@
     var a="${catalog.getTotalRows()}";
     var b="${catalog.getPage()}";
     var c="${catalog.getPageRecorders()}";
+    alert(a)
+    alert(b)
+    alert(c)
+
     layui.use('form',function () {
         var form = layui.form;
     })
@@ -87,16 +91,18 @@
             <#--,next:${catalog.isHasNextPage()}-->
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj,first){
+                //console.log(000)
                 // $("#a").val(obj.curr);
                 // $("#b").val(obj.limit)
-                if(!first){
-                    //window.location.href="cataLogListController?pageNumber="+obj.curr+"&pageSize="+obj.limit;
-                    alert(obj.curr)
-                    console.log(obj)
-                    console.log(obj.curr);
-                    console.log(obj.limit);
+                //alert(first)
+               if(!first){
+                   window.location.href="cataLogListController?pageNumber="+obj.curr+"&pageSize="+obj.limit;
+
+                    //console.log(obj)
+                    //console.log(obj.curr);
+                   // console.log(obj.limit);
                     //$("form").submit();
-                    alert(2)
+
                 }
             }
         });
