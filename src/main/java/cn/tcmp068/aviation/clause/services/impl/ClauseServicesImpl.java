@@ -29,6 +29,7 @@ public class ClauseServicesImpl implements ClauseServices {
         PageHelper.startPage(pageNumber,pageSize);
         List<Clause> list=this.clauseMapper.queryAllClause(clause);
         PageInfo<Clause> pageInfo=new PageInfo<>(list);
+        System.out.println("+++++++++++++++++++++++++++"+pageInfo.getPageSize());
         return pageInfo;
     }
 

@@ -12,7 +12,7 @@
   <select id="queryAllClause" parameterType="cn.tcmp068.aviation.entity.Clause" resultMap="ClauseMap">
     SELECT * FROM Clause,Catalog
     <where>
-      Clause.cateLogid=Catalog.catalogId
+      Clause.catalogId=Catalog.catalogId
       <if test="clause != null">
         <if test="clause.lawsId != null">
           <if test="clause.lawsId.lawsId != null and clause.lawsId.lawsId != 'kong'">
@@ -32,6 +32,6 @@
         delete from Clause where clauseId=#{clauseId}
    </delete>
   <insert id="addClause" parameterType="cn.tcmp068.aviation.entity.Clause" >
-     insert into Clause values (#{clauseId}, #{catalog.catelogId}, #{lawsId.lawsId},#{clauseNumber}, #{clauseName}, #{clauseVersions}, #{clauseTitle}, #{clauseText}, #{clauseKeyword})
+     insert into Clause values (#{clauseId}, #{catalog.catalogId}, #{lawsId.lawsId},#{clauseNumber}, #{clauseName}, #{clauseVersions}, #{clauseTitle}, #{clauseText}, #{clauseKeyword})
   </insert>
 </mapper>

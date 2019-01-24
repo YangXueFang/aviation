@@ -87,18 +87,15 @@
             ,limits: [10, 20, 30 ,50 ,100]
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
             ,jump: function(obj,first){
-                // var consultPhone=$("[input name='consultPhone']").val();
-                // alert(consultPhone)
-                // var consultText=$("#consultText").val();
-                // alert(consultText)
                 if(!first){
-                    alert("=====================")
-                    alert(obj.curr);
-
-
+                    //alert("=====================")
+                    var consultPhone=$('input[name= consultPhone]').val();
+                    var consultText=$('input[name= consultText]').val();
+                    //alert(1);
+                    //alert(obj.curr);
+                    //console.log(layui.jquery('input[name= consultPhone]').val());
                     window.location.href="listConsultController?consultPhone="+consultPhone+"&consultText="+consultText+"&pageNum="+obj.curr+"&pageSize="+obj.limit;
                 }
-
             }
         });
     })

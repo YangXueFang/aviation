@@ -18,9 +18,11 @@
             <div class="layui-form" style="position: relative;margin: 50px 0px 30px 0px;">
                 <label class="layui-form-label">选择法规：</label>
                 <form method="post" action="/cataLogListController">
+                    <input type="text" name="pageSize" value="${catalog.pageRecorders}" id="b">
+                    <input type="text" name="pageNumber" value="${catalog.page}" id="a">
                 <div class="layui-input-inline">
                     <select name="cataLaws">
-                        <option value="请选择">请选择</option>
+
                         <#list llist.list as laws>
                         <option value="${laws.lawsId}">${laws.lawsId}</option>
                         </#list>
@@ -40,13 +42,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <#list list  as cataLog>
+                <#list catalog.list  as cataLog>
                 <tr>
                     <td>${cataLog.cateText}</td>
                     <td>${cataLog.cateNumber}</td>
                     <td>
-                        <a href="" class="caozuo">编辑</a>
-                        <a href="" class="caozuo">删除</a>
+                        <a href="toUpdate?catalogId=${cataLog.catalogId}" class="caozuo">编辑</a>
+                        <a href="" class="caozuo" onclick="shan();">删除</a>
                     </td>
                 </tr>
                 </#list>
@@ -58,20 +60,45 @@
 </div>
 <script src="../static/layui/layui.js"></script>
 <script>
-    //Demo
-    layui.use('form', function(){
+    var a="${catalog.getTotalRows()}";
+    var b="${catalog.getPage()}";
+    var c="${catalog.getPageRecorders()}";
+    layui.use('form',function () {
         var form = layui.form;
-
-    });
+    })
+    function shan() {
+        layer.confirm('您确定要删除吗？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+            <#--window.location.href="cataLogDeleteController?catalogId="+${cataLog.catalogId};-->
+        }, function(){
+            layer.close(layer.index);
+        });
+    }
     layui.use(['laypage','layer'],function () {
         var laypage = layui.laypage;
         laypage.render({
             elem: 'page'
-            ,count: 100
+            ,count: a
+            ,curr:  b //获取起始页
+            ,hash: 'fenye'
+            ,limit: c
+            ,limits: [10, 20, 30 ,50 ,100]
+            <#--,next:${catalog.isHasNextPage()}-->
             ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-            ,jump: function(obj){
-            }  //这是啥?
-
+            ,jump: function(obj,first){
+                // $("#a").val(obj.curr);
+                // $("#b").val(obj.limit)
+                if(!first){
+                    //window.location.href="cataLogListController?pageNumber="+obj.curr+"&pageSize="+obj.limit;
+                    alert(obj.curr)
+                    console.log(obj)
+                    console.log(obj.curr);
+                    console.log(obj.limit);
+                    //$("form").submit();
+                    alert(2)
+                }
+            }
         });
     })
 </script>

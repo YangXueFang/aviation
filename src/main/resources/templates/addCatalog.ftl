@@ -14,8 +14,9 @@
         <div class="title">新增目录</div>
     </header>
     <footer>
-        <form method="post" action="/cataLogDoAddController">
+
         <div>
+            <form method="post" action="/cataLogDoAddController">
             <table class="biaodan" style="border-collapse:separate; border-spacing:0px 50px;" >
                 <tr>
                     <td style="width: 300px;">*目录名称:</td>
@@ -54,8 +55,9 @@
                     </td>
                 </tr>
             </table>
-        </div>
         </form>
+        </div>
+
     </footer>
 </div>
 <script src="../static/layui/lay/modules/jquery-3.3.1.min.js"></script>
