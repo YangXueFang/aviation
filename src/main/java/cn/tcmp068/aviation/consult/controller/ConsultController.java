@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -57,5 +58,11 @@ public class ConsultController {
     public String detail(Model model,int consultId){
         model.addAttribute("consult",this.consultServices.queryConsultByuserId(consultId));
         return "detailConsult";
+    }
+    /////////手机端
+    @RequestMapping("detailConsultPhone")
+    @ResponseBody
+    public Consult detailPhone(int consultId){
+        return this.consultServices.queryConsultByuserId(consultId);
     }
 }

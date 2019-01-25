@@ -62,7 +62,8 @@
             <span class="x-content" style="font-size: 15px;color: #333333;">
                 ${userConsult.consultText}
             </span>
-            <a class="gengduo" href="javascript:void(0)" onclick="tan()">更多</a>
+            <a class="gengduo" href="javascript:void(0)" name="consultId">更多</a>
+            <span style="display:none">${userConsult.consultId}</span>
         </div>
     </div>
     </#list>
@@ -75,6 +76,7 @@
 
 <script src="../static/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../static/js/login.js"></script>
+<script src="../static/layui/lay/modules/jquery-3.3.1.min.js"></script>
 <script src="../static/js/mui.min.js"></script>
 <script src="../static/layui/layui.js"></script>
 <script>
@@ -94,24 +96,35 @@
         });
     });
 </script>
-<script>
-    layui.use('layer',function () {
-        layer=layui.layer;
+<script type="text/javascript">
+    $(function(){
+        layui.use('layer',function () {
+            layer=layui.layer;
+        })
+        $("a[name=consultId]").click(function(){
+            var consultId=$(this).next().html();
+            $.post("detailConsultPhone",{"consultId":consultId},function(returnData,status){
+                if ("success"==status) {
+                    var title=returnData.consultClause;
+                    var content=returnData.consultText;
+                    var consultTime=returnData.consultTime;
+                    var d = new Date(consultTime);
+                    var times=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+                    layer.open({
+                        type: 1
+                        ,skin:'tan-yangshi'
+                        ,title:'咨询问题<span style="color: #007aff;padding-left: 5px;">('+times+')</span>'
+                        ,area: ['100%', '525px']
+                        ,offset: 'b' //具体配置参考：offset参数项,
+                        ,content: content
+                        ,btnAlign: 'b' //按钮居中
+                        ,shade: 0.5 //不显示遮罩
+                    });
+                }
+            },"json");
+        })
     })
-    function tan() {
-        layer.open({
-            type: 1
-            ,skin:'tan-yangshi'
-            ,title:'咨询问题<span style="color: #007aff;padding-left: 5px;">(2018-12-24)</span>'
-            ,area: ['100%', '525px']
-            ,offset: 'b' //具体配置参考：offset参数项,
-            ,content: '咨询问题详情'
-            ,btnAlign: 'b' //按钮居中
-            ,shade: 0.5 //不显示遮罩
-        });
-    }
 </script>
-
 </body>
 </html>
 
