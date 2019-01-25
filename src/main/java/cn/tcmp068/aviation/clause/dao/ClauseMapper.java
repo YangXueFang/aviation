@@ -13,4 +13,5 @@ public interface ClauseMapper {
     int deleteClause(int clauseId);
     Clause detailClause(int clauseId);
     int updateClause(@Param("clause") Clause clause);
+    List<Clause> queryByCatalogId(int catalogId);//查询同一目录下的所有条款
 }

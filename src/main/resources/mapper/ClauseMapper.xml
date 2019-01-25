@@ -28,6 +28,9 @@
       </if>
     </where>
   </select>
+  <select id="queryByCatalogId" parameterType="int" resultMap="ClauseMap">
+    select * from Clause,Catalog where Clause.catalogId=Catalog.catalogId and Clause.catalogId=#{catalogId}
+  </select>
   <delete id="deleteClause" parameterType="cn.tcmp068.aviation.entity.Clause">
         delete from Clause where clauseId=#{clauseId}
    </delete>
@@ -35,7 +38,7 @@
      insert into Clause values (#{clauseId}, #{catalog.catalogId}, #{lawsId.lawsId},#{clauseNumber}, #{clauseName}, #{clauseVersions}, #{clauseTitle}, #{clauseText}, #{clauseKeyword})
   </insert>
   <select id="detailClause" parameterType="int" resultMap="ClauseMap">
-    select * from Clause,Catalog where Clause.catalogid=Catalog.catalogId and clauseId=#{clauseId}
+    select * from Clause,Catalog where Clause.cateLogid=Catalog.catalogId and Clause.clauseId=#{clauseId}
   </select>
   <update id="updateClause" parameterType="cn.tcmp068.aviation.entity.Clause">
     update Clause

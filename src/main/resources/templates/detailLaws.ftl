@@ -76,7 +76,7 @@
                     <div class="x-content">
                         <ul>
                             <li class="x-content-div">
-                                <a href="detailCatalog" target="_parent">
+                                <a href="detailCatalogPhone?catalogId=${catalog.catalogId}" target="_parent">
                                     <div><strong>${catalog.cateText}</strong></div>
                                     <div></div>
                                     <div><span class="mui-icon mui-icon-arrowright"></span></div>

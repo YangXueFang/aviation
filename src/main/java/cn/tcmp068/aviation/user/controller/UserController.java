@@ -70,10 +70,7 @@ public class UserController {
         return "forgetPassword";
     }
 
-    @RequestMapping("detailCatalog")
-    public String detailCatalog(){
-        return "detailCatalog";
-    }
+
 
 
     @RequestMapping("listUserController")

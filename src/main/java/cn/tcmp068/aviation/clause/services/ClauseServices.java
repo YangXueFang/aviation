@@ -12,4 +12,5 @@ public interface ClauseServices {
     int deleteClause(int clauseId);
     Clause detailClause(int clauseId);
     int updateClause(Clause clause);
+    List<Clause> queryByCatalogId(int catalogId);//查询同一目录下的所有条款
 }

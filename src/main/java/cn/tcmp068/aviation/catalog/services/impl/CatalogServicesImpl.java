@@ -72,4 +72,5 @@ public class CatalogServicesImpl implements CatalogServices {
     public Catalog queryOneCataLaws() {
         return this.catalogMapper.queryOneCataLaws();
     }
+
 }

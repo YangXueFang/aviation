@@ -1,6 +1,7 @@
 package cn.tcmp068.aviation.catalog.controller;
 
 import cn.tcmp068.aviation.catalog.services.CatalogServices;
+import cn.tcmp068.aviation.clause.services.ClauseServices;
 import cn.tcmp068.aviation.entity.Catalog;
 import cn.tcmp068.aviation.entity.Laws;
 import com.github.pagehelper.PageHelper;
@@ -24,6 +25,8 @@ import java.util.List;
 public class CatalogController {
     @Resource
     private CatalogServices catalogServices;
+    @Resource
+    private ClauseServices clauseServices;
 
     @RequestMapping("cataLogAddController")
     public String toAdd(Model model, Laws laws,@RequestParam(defaultValue = "1", required = false) int pageNumber, @RequestParam(defaultValue = "10", required = false) int pageSize){
@@ -143,4 +146,14 @@ public class CatalogController {
         model.addAttribute("catalog",this.catalogServices.updateCatalog(catalog));
         return "redirect:/cataLogListController";
         }
+
+        ////////手机
+    @RequestMapping("detailCatalogPhone")
+    public String detailCatalog(Model model,int catalogId){
+        Catalog catalog=catalogServices.queryBycatalogId(catalogId);
+        model.addAttribute("catalog",catalog);
+        model.addAttribute("fuji",catalogServices.queryBycatalogId(catalog.getCateRank()));
+        model.addAttribute("clauseList",clauseServices.queryByCatalogId(catalogId));
+        return "detailCatalog";
+    }
 }

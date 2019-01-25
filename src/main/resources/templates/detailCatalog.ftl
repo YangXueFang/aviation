@@ -23,19 +23,21 @@
 </header>
 <div class="mui-content" style="background-color: #fff;">
     <div class="x-title">
-        <span>B部分 : 飞行  >  稳定性</span>
+        <span>${fuji.cateText}  >  ${catalog.cateText}</span>
     </div>
-    <div class="x-biaoti">
-        <span>第25.173条</span>
-        <h4>纵向静稳定性</h4>
-        <div class="x-shoucang">
-            <span class="iconfont icon-shoucang" style="color: #000;"></span>
-            <span>收藏</span>
+    <#list clauseList as clause>
+        <div class="x-biaoti">
+            <span>第${clause.clauseNumber}条</span>
+            <h4>${clause.clauseTitle}</h4>
+            <div class="x-shoucang">
+                <span class="iconfont icon-shoucang" style="color: #000;"></span>
+                <span>收藏</span>
+            </div>
         </div>
-    </div>
-    <div style="padding: 5px;">
-        <span>asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-    </div>
+        <div style="padding: 5px;">
+            <span>${clause.clauseText}</span>
+        </div>
+    </#list>
 </div>
 </body>
 </html>

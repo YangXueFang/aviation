@@ -48,4 +48,9 @@ public class ClauseServicesImpl implements ClauseServices {
     public int updateClause(Clause clause) {
         return this.clauseMapper.updateClause(clause);
     }
+
+    @Override
+    public List<Clause> queryByCatalogId(int catalogId) {
+        return this.clauseMapper.queryByCatalogId(catalogId);
+    }
 }

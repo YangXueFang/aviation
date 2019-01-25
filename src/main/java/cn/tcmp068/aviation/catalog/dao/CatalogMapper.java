@@ -14,4 +14,5 @@ public interface CatalogMapper {
     Catalog queryBycatalogId(int catalogId);
     int updateCatalog(Catalog catalog);
     Catalog queryOneCataLaws();//查询第一个
+
 }
