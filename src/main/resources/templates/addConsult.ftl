@@ -57,29 +57,30 @@
         </div>
     </div>
     <div style="width: 100%;background-color: #fff;border-radius: 5px;">
-
+        <form method="post" action="/doAddConsultController">
         <div class="mui-input-group" style="padding: 10px 20px 10px 20px;">
             <div style="background-color: #f7f7f7;">
                 <label style="width: 18%;"><span class="mui-icon mui-icon-person"></span></label>
-                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入姓名，不超过10个字">
+                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入姓名，不超过10个字" name="consultName">
+                <input style="font-size: 16px;width: 82%;" type="hidden" placeholder="请输入姓名，不超过10个字" name="user.userId" value="1" >
             </div>
             <div style="background-color: #f7f7f7;">
                 <label style="width: 18%;"><span class="mui-icon mui-icon-phone"></span></label>
-                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入手机号">
+                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入手机号" name="consultPhone">
             </div>
             <div style="background-color: #f7f7f7;">
                 <label style="width: 18%;"><span class="mui-icon mui-icon-compose"></span></label>
-                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入相关条款编号，不超过100字">
+                <input style="font-size: 16px;width: 82%;" type="text" placeholder="请输入相关条款编号，不超过100字" name="consultClause">
             </div>
             <div>
                 <label for="hcqk" style="font-size: 10px;padding-left: 5px;">问题描述：</label>
-                <textarea id="hcqk" style="background-color: #f7f7f7;border-radius: 5px;font-size: 16px;" rows="5" placeholder="字数限制30到500之间"></textarea>
+                <textarea id="hcqk" style="background-color: #f7f7f7;border-radius: 5px;font-size: 16px;" rows="5" placeholder="字数限制30到500之间" name="consultText"></textarea>
             </div>
             <div style="text-align: center;">
-                <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="background-color: #007aff; color: white;width: 280px;">提交</button>
+                <button type="submit" class="mui-btn mui-btn-primary mui-btn-outlined" style="background-color: #007aff; color: white;width: 280px;">提交</button>
             </div>
-
         </div>
+        </form>
     </div>
 </div>
 <script src="../static/js/mui.min.js"></script>

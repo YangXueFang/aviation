@@ -2,6 +2,7 @@ package cn.tcmp068.aviation;
 
 
 import cn.tcmp068.aviation.consult.dao.ConsultMapper;
+import cn.tcmp068.aviation.entity.Consult;
 import cn.tcmp068.aviation.entity.User;
 
 import cn.tcmp068.aviation.user.dao.UserMapper;
@@ -160,6 +161,11 @@ public class AviationApplicationTests {
 //
 //
 //    }
-
+@Test
+    public void add(){
+        User user=new User();
+        user.setUserId(1);
+    System.out.println(this.consultMapper.addConsult(new Consult(9,"xm","11231",null,12,"ghfk",0,user)));
+}
 }
 

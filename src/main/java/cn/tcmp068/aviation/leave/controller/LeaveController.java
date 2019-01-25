@@ -44,6 +44,6 @@ public class LeaveController {
     @RequestMapping("doAddLeaveController")
     public String doAdd(Model model,Leave leave){
         model.addAttribute("leave",this.leaveServices.addLeave(leave));
-        return "addLeave";
+        return "my";
     }
 }

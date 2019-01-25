@@ -115,7 +115,7 @@ public class CatalogController {
             Catalog catalog=this.catalogServices.queryBycatalogId(catalogId);
             model.addAttribute("catalog",catalog);
             model.addAttribute("llist",this.catalogServices.queryAll(laws,pageNumber,pageSize));
-            String cl=catalog.getCataLaws();
+             String cl=catalog.getCataLaws();
             System.out.println(cl);
             List<Catalog> alist = this.catalogServices.queryAllCatalog(cl, pageNumber, pageSize).getList();
             List<Catalog> list = new ArrayList<>();

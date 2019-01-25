@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="./css/mui.min.css">
-    <link rel="stylesheet" href="./css/Xq.css">
-    <link rel="stylesheet" href="./fonts/font_acyazmtbuxi/iconfont.css">
-    <link rel="stylesheet" href="./fonts/mimasuo/iconfont.css">
-    <link rel="stylesheet" href="./css/login2.css">
+    <link rel="stylesheet" href="../static/css/mui.min.css">
+    <link rel="stylesheet" href="../static/css/Xq.css">
+    <link rel="stylesheet" href="../static/fonts/font_acyazmtbuxi/iconfont.css">
+    <link rel="stylesheet" href="../static/fonts/mimasuo/iconfont.css">
+    <link rel="stylesheet" href="../static/css/login2.css">
     <style>
         html,body {
             background-color: #fff;
@@ -52,10 +52,13 @@
     <a class="mui-icon mui-icon-more mui-pull-right"></a>
 </header>
 <div class="mui-content" style="background-color: #fff;">
+    <form method="post" action="/doAddLeaveController">
     <div style="margin-top: 20px;text-align: center;">
-        <textarea id="hcqk" style="background-color: #f7f7f7;border-radius: 5px;font-size: 14px;width: 305px;height: 150px;" rows="5" placeholder="欢迎提出宝贵的意见和建议(500字以内)"></textarea>
-        <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined" style="background-color: #007aff;display: block;margin: 30px auto 20px;color: white;width: 200px;">提交</button>
+        <textarea id="hcqk" style="background-color: #f7f7f7;border-radius: 5px;font-size: 14px;width: 305px;height: 150px;" rows="5" placeholder="欢迎提出宝贵的意见和建议(500字以内)" name="leaveText"></textarea>
+        <input type="hidden" name="user.userId" value="1">
+        <button type="submit" class="mui-btn mui-btn-primary mui-btn-outlined" style="background-color: #007aff;display: block;margin: 30px auto 20px;color: white;width: 200px;">提交</button>
     </div>
+    </form>
 </div>
 
 
@@ -63,9 +66,9 @@
 
 
 
-<script src="./js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
-<script src="./js/mui.min.js"></script>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
+<script src="../static/js/mui.min.js"></script>
 <script>
     mui.init({
         swipeBack:true //启用右滑关闭功能

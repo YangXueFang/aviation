@@ -50,7 +50,7 @@ public class ConsultController {
     @RequestMapping("doAddConsultController")
     public String doAdd(Model model,Consult consult){
         model.addAttribute("consult",this.consultServices.addConsult(consult));
-        return null;
+        return "about";
     }
 
     @RequestMapping("detailConsultController")

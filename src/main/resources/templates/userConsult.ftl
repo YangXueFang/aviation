@@ -74,7 +74,7 @@
 
 
 <script src="../static/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="../static/js/login.js"></script>
 <script src="../static/js/mui.min.js"></script>
 <script src="../static/layui/layui.js"></script>
 <script>

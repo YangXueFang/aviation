@@ -41,7 +41,7 @@
                             <select name="lawsId.lawsId" lay-filter="tests" id="ajaxClause">
                                 <option value="请选择">请选择</option>
                                 <#list llist.list as laws>
-                                    <option value="${laws.lawsId}">${laws.lawsId}</option>
+                                    <option value="${laws.lawsId}"<#if (clause.lawsId.lawsId)==(laws.lawsId)>selected="selected"</#if>>${laws.lawsId}</option>
                                 </#list>
                             </select>
                         </div>
@@ -53,37 +53,41 @@
                         <div class="layui-input-inline x-select">
                             <select name="catalog.catalogId" id="mulu" lay-filter="mulu">
                                 <option value="请选择">请选择</option>
+                                <#list list as l>
+                                    <#--<#if (l.catalogId)==(clause.catalog.catalogId)>selected="selected"</#if>-->
+                                    <option value="${l.catalogId}">${l.cateText}</option>
+                                </#list>
                             </select>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>*条款编号:</td>
-                    <td><input class="layui-input x-input" type="text" name="clauseNumber"></td>
+                    <td><input class="layui-input x-input" type="text" name="clauseNumber" value="${clause.clauseNumber}"></td>
                 </tr>
                 <tr>
                     <td>*条款编号别名:</td>
-                    <td><input class="layui-input x-input" type="text" name="clauseName"></td>
+                    <td><input class="layui-input x-input" type="text" name="clauseName" value="${clause.clauseName}"></td>
                 </tr>
                 <tr>
                     <td>条款版本号:</td>
-                    <td><input class="layui-input x-input" type="text" name="clauseVersions"></td>
+                    <td><input class="layui-input x-input" type="text" name="clauseVersions" value="${clause.clauseVersions}"></td>
                 </tr>
                 <tr>
                     <td>*条款标题:</td>
-                    <td><input class="layui-input x-input" type="text" name="clauseTitle"></td>
+                    <td><input class="layui-input x-input" type="text" name="clauseTitle" value="${clause.clauseTitle}"></td>
                 </tr>
                 <tr>
                     <td>*条款内容:</td>
                     <td>
                         <#--<div id="froala-editor" style="width: 500px;" name="clauseText" contentEditable="true" >-->
                         <#--</div>-->
-                        <textarea id="froala-editor" name="clauseText" ></textarea>
+                        <textarea id="froala-editor" name="clauseText"  value="${clause.clauseText}"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>关键词:</td>
-                    <td><input class="layui-input x-input" type="text" name="clauseKeyword"></td>
+                    <td><input class="layui-input x-input" type="text" name="clauseKeyword" value="${clause.clauseKeyword}"></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">

@@ -61,7 +61,7 @@
         </div>
     </footer>
 </div>
-<script src="./layui/layui.js"></script>
+<script src="../static/layui/layui.js"></script>
 <script>
     layui.use(['laypage','layer'],function () {
         var laypage = layui.laypage;

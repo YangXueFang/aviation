@@ -33,6 +33,6 @@
         select * from Consult where consultId=#{consultId}
     </select>
     <insert id="addConsult" parameterType="cn.tcmp068.aviation.entity.Consult">
-        insert into Consult values (null,#{consultName},#{consultPhone},#{consultClause},#{consultText},now(),#{user.userId},0)
+        insert into Consult values (null,#{consultName},#{consultPhone},now(),#{consultClause},#{consultText},#{user.userId},0)
     </insert>
 </mapper>
