@@ -29,126 +29,14 @@
         <!--默认显示内容-->
         <div id="neirong1" style="display: block;">
           <ul class="neirong" style="padding: 0px;">
-            <li>
-              <a class="kuai" href="detailLaws" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
-            <li>
-              <a class="kuai" href="" target="_parent">
-                <h2>21</h2>
-                <h6>民用</h6>
-              </a>
-            </li>
+            <#list laws.list as laws>
+                <li>
+                    <a class="kuai" href="detailLaws?lawsId=${laws.lawsId}" target="_parent">
+                        <h2>${laws.lawsPart}</h2>
+                        <h6>${laws.lawsName}</h6>
+                    </a>
+                </li>
+            </#list>
           </ul>
           <div style="height: 100px;padding: 5px;background-color: #fff;margin-top: 5px;">
             <div style="position: relative;height: 20px;">

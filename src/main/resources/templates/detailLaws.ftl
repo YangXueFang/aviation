@@ -48,7 +48,7 @@
 <body>
 <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <h1 id="title" class="mui-title">25部</h1>
+    <h1 id="title" class="mui-title">${laws.lawsPart}部</h1>
     <a class="mui-icon mui-icon-more mui-pull-right"></a>
 </header>
 <div class="mui-content">
@@ -67,133 +67,36 @@
         <div class="web_qr_login" id="web_qr_login" style="display: block;">
 
             <!--法规目录-->
-            <div class="bufen">
-                <div class="bufen-title"><strong>A部分</strong></div>
-                <div>总则</div>
-            </div>
-            <div class="x-content">
-                <ul>
-                    <li class="x-content-div">
-                        <a href="detailCatalog" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                    <li class="x-content-div">
-                        <a href="detailCatalog" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                    <li class="x-content-div">
-                        <a href="detailCatalog.ftl" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bufen">
-                <div class="bufen-title"><strong>B部分</strong></div>
-                <div>飞行</div>
-            </div>
-            <div class="x-content">
-                <ul>
-                    <li class="x-content-div">
-                        <a href="detailCatalog.ftl" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                    <li class="x-content-div">
-                        <a href="detailCatalog.ftl" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                    <li class="x-content-div">
-                        <a href="detailCatalog.ftl" target="_parent">
-                            <div><strong>第25.1条</strong></div>
-                            <div>适用范围</div>
-                            <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-                <div class="bufen">
-                    <div class="bufen-title"><strong>B部分</strong></div>
-                    <div>飞行</div>
-                </div>
-                <div class="x-content">
-                    <ul>
-                        <li class="x-content-div">
-                            <a href="detailCatalog.ftl" target="_parent">
-                                <div><strong>第25.1条</strong></div>
-                                <div>适用范围</div>
-                                <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                            </a>
-                        </li>
-                        <li class="x-content-div">
-                            <a href="detailCatalog.ftl" target="_parent">
-                                <div><strong>第25.1条</strong></div>
-                                <div>适用范围</div>
-                                <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                            </a>
-                        </li>
-                        <li class="x-content-div">
-                            <a href="detailCatalog.ftl" target="_parent">
-                                <div><strong>第25.1条</strong></div>
-                                <div>适用范围</div>
-                                <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <#list lawsList as catalog>
+                <#if (catalog.cateGrade==1)>
                     <div class="bufen">
-                        <div class="bufen-title"><strong>B部分</strong></div>
-                        <div>飞行</div>
+                        <div class="bufen-title"><strong>${catalog.cateText}</strong></div>
                     </div>
+                <#else>
                     <div class="x-content">
                         <ul>
                             <li class="x-content-div">
-                                <a href="detailCatalog.ftl" target="_parent">
-                                    <div><strong>第25.1条</strong></div>
-                                    <div>适用范围</div>
-                                    <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                                </a>
-                            </li>
-                            <li class="x-content-div">
-                                <a href="detailCatalog.ftl" target="_parent">
-                                    <div><strong>第25.1条</strong></div>
-                                    <div>适用范围</div>
-                                    <div><span class="mui-icon mui-icon-arrowright"></span></div>
-                                </a>
-                            </li>
-                            <li class="x-content-div">
-                                <a href="detailCatalog.ftl" target="_parent">
-                                    <div><strong>第25.1条</strong></div>
-                                    <div>适用范围</div>
+                                <a href="detailCatalog" target="_parent">
+                                    <div><strong>${catalog.cateText}</strong></div>
+                                    <div></div>
                                     <div><span class="mui-icon mui-icon-arrowright"></span></div>
                                 </a>
                             </li>
                         </ul>
                     </div>
+                </#if>
+            </#list>
             </div>
 
         <!--注册-->
         <div class="qlogin" id="qlogin" style="display: none; height: 235px;background-color: #fff;padding: 5px;">
 
             <div style="padding-top: 10px;">
-                <h4 style="display: inline-block;color: #007aff;">第25部</h4>
-                <strong>运输类飞机适航标准</strong>
+                <h4 style="display: inline-block;color: #007aff;">第${laws.lawsPart}部</h4>
+                <strong>${laws.lawsName}</strong>
             </div>
             <div style="padding-top: 5px;font-size: 14px;">
-                <span>   法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明法规版本说明</span>
+                <span>${laws.lawsState}</span>
             </div>
 
         </div>

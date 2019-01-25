@@ -34,9 +34,14 @@ public class CatalogServicesImpl implements CatalogServices {
     @Override
     public PageInfo<Catalog> queryAllCatalog(String cataLaws, int pageNumber, int pageSize) {
         PageHelper.startPage(pageNumber,pageSize);
-        List<Catalog> clist = catalogMapper.queryAllCatalog(cataLaws,pageNumber,pageSize);
+        List<Catalog> clist = catalogMapper.queryAllCatalog(cataLaws);
         PageInfo<Catalog> pageInfo=new PageInfo<>(clist);
         return pageInfo;
+    }
+
+    @Override
+    public List<Catalog> queryAllCatalog(String cataLaws) {
+        return catalogMapper.queryAllCatalog(cataLaws);
     }
 
 

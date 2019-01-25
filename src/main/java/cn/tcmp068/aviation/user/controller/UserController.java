@@ -69,10 +69,7 @@ public class UserController {
     public String forgetPassword(){
         return "forgetPassword";
     }
-    @RequestMapping("detailLaws")
-    public String detailLaws(){
-        return "detailLaws";
-    }
+
     @RequestMapping("detailCatalog")
     public String detailCatalog(){
         return "detailCatalog";

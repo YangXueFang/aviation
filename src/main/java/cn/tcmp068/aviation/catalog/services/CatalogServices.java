@@ -11,6 +11,7 @@ public interface CatalogServices {
     int addCatalog(Catalog catalog);
     int deleteCatalog(int catalogId);
     PageInfo<Catalog> queryAllCatalog(String cataLaws,int pageNumber, int pageSize);
+    List<Catalog> queryAllCatalog(String cataLaws);
     List<Catalog> queryByCateRank(int cateRank);//根据父级目录id获得其子目录
     PageInfo<Laws> queryAll(Laws laws, int pageNumber, int pageSize);//查所有
     Catalog queryBycatalogId(int catalogId);

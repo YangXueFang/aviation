@@ -20,7 +20,7 @@
     <a class="mui-icon mui-icon-more mui-pull-right"></a>
 </header>
 <nav class="mui-bar mui-bar-tab">
-    <a id="defaultTab" class="mui-tab-item mui-active" href="about">
+    <a id="defaultTab" class="mui-tab-item mui-active" href="queryAllLawsPhoneController">
         <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">适航知识</span>
     </a>
@@ -38,7 +38,7 @@
 <script type="text/javascript" charset="utf-8">
     //mui初始化
     mui.init();
-    var subpages = ['about', 'toAddConsultController', 'my'];
+    var subpages = ['queryAllLawsPhoneController', 'toAddConsultController', 'my'];
     var subpage_style = {
         top: '45px',
         bottom: '51px'

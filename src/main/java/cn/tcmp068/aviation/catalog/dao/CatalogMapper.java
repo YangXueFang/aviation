@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface CatalogMapper {
-    List<Catalog> queryAllCatalog(@Param("cataLaws") String cataLaws, int pageNumber, int pageSize);
+    List<Catalog> queryAllCatalog(@Param("cataLaws") String cataLaws);
     List<Catalog> queryByCateRank(int cateRank);//根据父级目录id获得其子目录
     int addCatalog(Catalog catalog);
     int deleteCatalog(int catalogId);

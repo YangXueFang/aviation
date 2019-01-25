@@ -33,6 +33,7 @@ public class ClauseServicesImpl implements ClauseServices {
         return pageInfo;
     }
 
+
     @Override
     public int deleteClause(int clauseId) {
         return this.clauseMapper.deleteClause(clauseId);
